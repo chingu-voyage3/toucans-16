@@ -19,6 +19,7 @@ class Quote extends React.Component {
                     author: response.data.quoteAuthor,
                     link: response.data.quoteLink,
                 })
+                    .bind(this);
     
             })
             // .catch( error => {
