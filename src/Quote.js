@@ -6,6 +6,7 @@ class Quote extends React.Component {
         super(props);
         this.state = {
             baseURL: 'https://talaikis.com/api/quotes/random/',
+            quote: '',
             author: '',
             // link: '',
         }
