@@ -5,21 +5,21 @@ class Quote extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            quote: '',
+            baseURL: 'https://talaikis.com/api/quotes/random/',
             author: '',
-            link: '',
+            // link: '',
         }
     }
 
     componentDidMount() {
-        axios.get('http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en')
+        axios.get(this.state.baseURL)
             .then((response) => {
                 this.setState({
-                    quote: response.data.quoteText,
-                    author: response.data.quoteAuthor,
-                    link: response.data.quoteLink,
+                    quote: response.data.quote,
+                    author: response.data.author,
+                    // link: response.data.quoteLink,
                 })
-                    .bind(this);
+                // .bind(this);
     
             })
             // .catch( error => {
@@ -35,7 +35,7 @@ class Quote extends React.Component {
             <div className="quote">
                 <q>{this.state.quote}</q>
                 <p>-{this.state.author}</p>
-                <p>{this.state.link}</p>
+                {/* <p>{this.state.link}</p> */}
             </div>
         );
     }
