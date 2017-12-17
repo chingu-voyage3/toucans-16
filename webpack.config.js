@@ -25,21 +25,22 @@ module.exports = {
         new webpack.NamedModulesPlugin()
     ],
     module: {
-        rules: [{
-            enforce: "pre",
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: "eslint-loader"
-        },
-        {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: "babel-loader"
-        },
-        {
-            test: /\.css$/,
-            use: ["style-loader", "css-loader"]
-        }
+        rules: [
+            {
+                enforce: "pre",
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "eslint-loader"
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
+            },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            }
         ]
     }
 };

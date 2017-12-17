@@ -9,13 +9,14 @@
         "build": "webpack",
         "build-prod": "webpack -p",
         "watch": "webpack --watch",
-        "start": "webpack-dev-server",
-        "lint": "eslint **/*.{js,jsx} --quiet"
+        "start": "webpack-dev-server --no-inline",
+        "lint": "eslint **/*.{js, jsx} --quiet"
     },
     "devDependencies": {
         "babel-core": "^6.26.0",
         "babel-eslint": "^8.0.3",
         "babel-loader": "^7.1.2",
+        "babel-plugin-transform-class-properties": "^6.24.1",
         "babel-preset-env": "^1.6.1",
         "babel-preset-react": "^6.24.1",
         "css-loader": "^0.28.7",
@@ -36,6 +37,7 @@
     },
     "dependencies": {
         "axios": "^0.17.1",
+        "lodash": "^4.17.4",
         "react": "^16.2.0",
         "react-dom": "^16.2.0"
     }
