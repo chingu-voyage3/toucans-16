@@ -1,6 +1,6 @@
 import React from "react";
-import Todo from "./Todo";
 import Quote from "./Quote";
+import Todo from "./Todo/Todo";
 
 const App = () => (
     <div>
