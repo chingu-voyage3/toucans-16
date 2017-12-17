@@ -16,12 +16,11 @@
     },
     "rules": {
         "indent": ["error", 4],
-        "linebreak-style": ["error", "unix"],
+        "linebreak-style": 0,
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/prop-types": 0,
         "jsx-a11y/no-noninteractive-element-interactions": 0,
         "no-console": 0,
-        "jsx-a11y/anchor-is-valid": 0,
-        "jsx-a11y/no-noninteractive-element-interactions": 0
+        "jsx-a11y/anchor-is-valid": 0
     }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import TodoList from "./TodoList";
-<<<<<<< HEAD
 
 class Todo extends Component {
     state = {
