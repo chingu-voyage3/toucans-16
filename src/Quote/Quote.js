@@ -8,6 +8,7 @@ class Quote extends React.Component {
             baseURL: 'https://talaikis.com/api/quotes/random/',
             quote: '',
             author: '',
+            // saving link for now in case the other api is preferable.
             // link: '',
         }
     }
