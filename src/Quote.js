@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import axios from "axios";
 
-class Quote extends React.Component {
+class Quote extends Component {
     state = {
         quote: "",
         author: ""
