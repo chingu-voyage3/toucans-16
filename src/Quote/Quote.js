@@ -2,46 +2,29 @@ import React from "react";
 import axios from "axios";
 
 class Quote extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            baseURL: 'https://talaikis.com/api/quotes/random/',
-            quote: '',
-            author: '',
-            // saving link for now in case the other api is preferable.
-            // link: '',
-        }
-    }
+
+    state = {
+        quote: "",
+        author: ""
+    };
 
     componentDidMount() {
-        axios.get(this.state.baseURL)
-            .then((response) => {
-                this.setState({
-                    quote: response.data.quote,
-                    author: response.data.author,
-                    // link: response.data.quoteLink,
-                })
-                // .bind(this);
-    
-            })
-            // .catch( error => {
-            //     console.log('Error fetching and parsing data', error);
-            // });
+        const baseURL = "https://talaikis.com/api/quotes/random/";
+        axios.get(baseURL).then(response => {
+            this.setState({
+                quote: response.data.quote,
+                author: response.data.author
+            });
+        });
     }
-    
-
-
     render() {
-    
         return (
             <div className="quote">
                 <q>{this.state.quote}</q>
-                <p>-{this.state.author}</p>
-                {/* <p>{this.state.link}</p> */}
+                <p>{this.state.author}</p>
             </div>
         );
     }
 }
 
 export default Quote;
-    
