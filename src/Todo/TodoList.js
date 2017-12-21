@@ -88,7 +88,6 @@ class TodoList extends Component {
                             completed={todo.completed}
                             onDeleteTodo={this.handleDeleteTodo}
                             onDrop={this.handleDrop}
-                            onDragLeave={this.handleDragLeave}
                             onCompleted={this.handleCompleted}
                         />
                     ))}

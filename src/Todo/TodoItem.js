@@ -24,7 +24,6 @@ class TodoItem extends Component {
                 onDragStart={this.handleDragStart}
                 onDragOver={this.handleDragOver}
                 onDrop={this.handleDrop}
-                onDragLeave={this.handleDragLeave}
             >
                 <input
                     type="checkbox"
