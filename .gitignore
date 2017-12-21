@@ -43,6 +43,7 @@ dist/bundle.js
 
 
 ### VisualStudioCode ###
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
