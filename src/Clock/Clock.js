@@ -25,7 +25,7 @@ class Clock extends React.Component {
 
         return (
             <h1 className="live-clock">
-                { this.state.time.toLocaleTimeString().seconds(0) }
+                { this.state.time.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) }
             </h1>
         )
     }
