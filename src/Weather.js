@@ -5,8 +5,6 @@ class Weather extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            lon: "",
-            lat: "",
             name: "",
             temp: "",
             des: "",
@@ -18,12 +16,8 @@ class Weather extends React.Component {
     componentDidMount() {
         navigator.geolocation.getCurrentPosition(pos => {
             this.setState({
-                lon: pos.coords.longitude,
-                lat: pos.coords.latitude,
-                apiRequest:
-                    `${this.state.apiRequest}lat=${this.state.lat}&` +
-                    `lon=${this.state.lon}`
-            });
+                apiRequest: `${this.state.apiRequest}lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`
+            })
             axios.get(this.state.apiRequest).then(response => {
                 const weatherInfo = response.data;
                 this.setState({
@@ -53,7 +47,7 @@ class Weather extends React.Component {
     render() {
         return (
             <div>
-                <div>{this.state.name}</div>
+                <div>Current Location: {this.state.name}</div>
                 <div>Current Temperature: {this.state.temp}</div>
                 <div>{this.state.des}</div>
                 <div>
