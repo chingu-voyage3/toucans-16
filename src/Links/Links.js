@@ -8,8 +8,18 @@ import "./links.css";
 class Links extends Component {
     state = {
         items: [
-            { id: _.uniqueId(), name: "Github", url: "https://www.github.com" },
-            { id: _.uniqueId(), name: "Reddit", url: "https://www.reddit.com" }
+            {
+                id: _.uniqueId(),
+                name: "Chrome Tab",
+                url: "chrome-search://local-ntp/local-ntp.html",
+                fixed: true
+            },
+            {
+                id: _.uniqueId(),
+                name: "Apps",
+                url: "chrome://apps",
+                fixed: true
+            }
         ]
     };
     handleAdd = (name, url) => {
@@ -19,7 +29,8 @@ class Links extends Component {
                 {
                     id: _.uniqueId(),
                     name,
-                    url
+                    url,
+                    fixed: false
                 }
             ]
         });
@@ -43,14 +54,14 @@ class Links extends Component {
     render() {
         return (
             <Hideable label="link">
-                <ul>
+                <ul className="links-container">
                     {this.state.items.map(link => (
                         <LinksItem
                             id={link.id}
                             key={link.id}
                             name={link.name}
                             url={link.url}
-                            draggable="true"
+                            fixed={link.fixed}
                             onHandleDelete={this.handleDelete}
                             onDragStart={this.handleDragStart}
                             onDragOver={this.handleDragOver}

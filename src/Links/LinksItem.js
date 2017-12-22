@@ -10,8 +10,26 @@ class LinksItem extends Component {
         this.props.onDrop(evt.dataTransfer.getData("text"), this.props.id);
     };
     handleDelete = () => this.props.onHandleDelete(this.props.id);
+    handleDefault = () => {
+        window.open("chrome://apps");
+    };
     render() {
-        return (
+        return this.props.fixed ? (
+            <li className="links-item">
+                <img
+                    src={`http://grabicon.com/icon?domain=${this.props.url}`}
+                    alt={`${this.props.name} icon`}
+                />
+                <a
+                    href={this.props.url}
+                    target="_blank"
+                    onClick={this.handleDefault}
+                    // onClick={() => chrome.tabs.create({ url: "chrome://apps" })}
+                >
+                    {this.props.name}
+                </a>
+            </li>
+        ) : (
             <li
                 id={this.props.id}
                 className="links-item"
