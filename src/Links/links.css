@@ -1,0 +1,10 @@
+.links-item {
+    display: flex;
+    flex-wrap: no-wrap;
+    width: 300px;
+    align-items: center;
+    justify-content: space-between;
+}
+.link-item > img {
+    width: 30px;
+}

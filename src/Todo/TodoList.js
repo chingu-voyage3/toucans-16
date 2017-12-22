@@ -53,7 +53,6 @@ class TodoList extends Component {
             })
         });
     };
-    allowDrop = evt => evt.preventDefault();
     handleCompleted = id => {
         this.setState({
             todos: this.state.todos.map(todo => {
@@ -73,7 +72,6 @@ class TodoList extends Component {
         return (
             <div
                 className="todo-list"
-                onDragOver={this.allowDrop}
                 style={{
                     visibility: this.props.visible ? "visible" : "hidden"
                 }}
