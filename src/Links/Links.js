@@ -7,25 +7,12 @@ import "./links.css";
 
 class Links extends Component {
     state = {
-        items: [
-            {
-                id: _.uniqueId(),
-                name: "Chrome Tab",
-                url: "chrome-search://local-ntp/local-ntp.html",
-                fixed: true
-            },
-            {
-                id: _.uniqueId(),
-                name: "Apps",
-                url: "chrome://apps",
-                fixed: true
-            }
-        ]
+        links: []
     };
     handleAdd = (name, url) => {
         this.setState({
-            items: [
-                ...this.state.items,
+            links: [
+                ...this.state.links,
                 {
                     id: _.uniqueId(),
                     name,
@@ -37,17 +24,17 @@ class Links extends Component {
     };
     handleDelete = id => {
         this.setState({
-            items: this.state.items.filter(item => id !== item.id)
+            links: this.state.links.filter(link => id !== link.id)
         });
     };
     handleDragDrop = (id1, id2) => {
-        const idx1 = this.state.items.findIndex(item => item.id === id1);
-        const idx2 = this.state.items.findIndex(item => item.id === id2);
+        const idx1 = this.state.links.findIndex(link => link.id === id1);
+        const idx2 = this.state.links.findIndex(link => link.id === id2);
         this.setState({
-            items: this.state.items.map(item => {
-                if (item.id === id1) return this.state.items[idx2];
-                if (item.id === id2) return this.state.items[idx1];
-                return item;
+            links: this.state.links.map(link => {
+                if (link.id === id1) return this.state.links[idx2];
+                if (link.id === id2) return this.state.links[idx1];
+                return link;
             })
         });
     };
@@ -55,13 +42,12 @@ class Links extends Component {
         return (
             <Hideable label="link">
                 <ul className="links-container">
-                    {this.state.items.map(link => (
+                    {this.state.links.map(link => (
                         <LinksItem
                             id={link.id}
                             key={link.id}
                             name={link.name}
                             url={link.url}
-                            fixed={link.fixed}
                             onHandleDelete={this.handleDelete}
                             onDragStart={this.handleDragStart}
                             onDragOver={this.handleDragOver}

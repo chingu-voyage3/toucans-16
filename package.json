@@ -9,7 +9,7 @@
         "build": "webpack",
         "build-prod": "webpack -p",
         "watch": "webpack --watch",
-        "start": "webpack-dev-server --no-inline",
+        "start": "webpack-dev-server",
         "lint": "eslint **/*.{js, jsx} --quiet"
     },
     "devDependencies": {
