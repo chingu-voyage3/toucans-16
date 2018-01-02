@@ -6,7 +6,7 @@
     padding: 0 0.25em;
 }
 .todo-container {
-    width: 22em;
+    width: 300px;
 }
 .todo-list {
     display: flex;
@@ -26,6 +26,7 @@
     align-content: center;
     justify-content: space-between;
     align-self: center;
+    width: 300px;
 }
 .todo-item button {
     background-color: black;
@@ -44,13 +45,13 @@
     visibility: visible !important;
 }
 .todo-text {
-    width: 17em;
+    /* width: 17em; */
     overflow-wrap: break-word;
     margin: 0.25em auto;
     padding: 0.25em auto;
 }
 .todo-input {
-    width: 94%;
+    width: 300px;
     border: none;
     background-color: black;
     color: white;
@@ -75,4 +76,5 @@
 .filter-options {
     display: flex;
     justify-content: space-around;
+    width: 300px;
 }

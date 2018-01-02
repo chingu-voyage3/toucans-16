@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import axios from "axios";
 import './Quote.css';
 
-class Quote extends React.Component {
+class Quote extends Component {
     state = {
         quote: "",
         author: ""
