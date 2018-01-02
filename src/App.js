@@ -5,7 +5,6 @@ import Clock from "./Clock/Clock";
 import Links from "./Links/Links";
 import Sounds from "./Sounds/Sounds";
 
-
 const App = () => (
     <div>
         <Todo />
