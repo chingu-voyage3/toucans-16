@@ -1,0 +1,22 @@
+body {
+    background-image: url('https://source.unsplash.com/random/1920x1080');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.quote-body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    text-shadow: 1px 0px black;
+}
+
+.quote-source {
+    font-style: italic;
+    font-weight: bold;
+}

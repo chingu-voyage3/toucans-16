@@ -1,13 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 import axios from "axios";
+import './Quote.css';
 
-class Quote extends React.Component {
-
+class Quote extends Component {
     state = {
         quote: "",
         author: ""
     };
-
     componentDidMount() {
         const baseURL = "https://talaikis.com/api/quotes/random/";
         axios.get(baseURL).then(response => {
@@ -19,9 +18,9 @@ class Quote extends React.Component {
     }
     render() {
         return (
-            <div className="quote">
-                <q>{this.state.quote}</q>
-                <p>{this.state.author}</p>
+            <div className="quote-body">
+                <q className="quote-text">{this.state.quote}</q>
+                <p className="quote-source">- {this.state.author}</p>
             </div>
         );
     }
