@@ -18,12 +18,10 @@ class Quote extends React.Component {
     }
     render() {
         return (
-            <blockquote className="quote">
-                <div className="quote-body">
-                    <q className="quote-text">{this.state.quote}</q>
-                    <p className="quote-source">- {this.state.author}</p>
-                </div>
-            </blockquote>
+            <div className="quote-body">
+                <q className="quote-text">{this.state.quote}</q>
+                <p className="quote-source">- {this.state.author}</p>
+            </div>
         );
     }
 }
