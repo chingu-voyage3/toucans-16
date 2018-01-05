@@ -3,12 +3,6 @@ import axios from "axios";
 /* 
 57776b760d0fd5cbe7d9e08dca8140eb 
 Icon set - https://www.iconfinder.com/iconsets/weather-line-5 
-https://www.iconfinder.com/iconsets/weather-260
-
-Things to work on
-
-1. Toggle temperature unit
-2. Custom Icon for weather description
 */
 
 class Weather extends React.Component {
@@ -32,23 +26,25 @@ class Weather extends React.Component {
             day4Des:"",
             day5HighTemp: "",
             day5LowTemp: "",
-            day5Des:""
+            day5Des:"",
+            celsiusUnit:true,
+            unit: "Celsius"
         };
     }
 
     componentDidMount() {
+
         navigator.geolocation.getCurrentPosition(pos => {
             this.setState({
                 currentWeather: `${this.state.currentWeather}lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric&appid=57776b760d0fd5cbe7d9e08dca8140eb`,
                 forecast: `${this.state.forecast}lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric&appid=57776b760d0fd5cbe7d9e08dca8140eb`
             })
-
-            axios.all([
-                axios.get(this.state.currentWeather),
-                axios.get(this.state.forecast)
-            ])
-                .then(axios.spread((currentWeatherRes, forecast) => {
-
+            
+            const getAPI = () =>{
+                axios.all([
+                    axios.get(this.state.currentWeather),
+                    axios.get(this.state.forecast)
+                ]).then(axios.spread((currentWeatherRes, forecast) => {
                     const current = currentWeatherRes.data;
                     const forecasted = forecast.data;
 
@@ -57,33 +53,66 @@ class Weather extends React.Component {
                         currentHighTemp: current.main.temp_max,
                         currentLowTemp: current.main.temp_min,
                         currentDes: current.weather[0].description,
-                        day2HighTemp: forecasted.list[11].main.temp,
-                        day2LowTemp: forecasted.list[12].main.temp,
+                        day2HighTemp: Math.round(forecasted.list[11].main.temp),
+                        day2LowTemp: Math.round(forecasted.list[12].main.temp),
                         day2Des: forecasted.list[11].weather[0].description,
-                        day3HighTemp: forecasted.list[19].main.temp,
-                        day3LowTemp: forecasted.list[20].main.temp,
+                        day3HighTemp: Math.round(forecasted.list[19].main.temp),
+                        day3LowTemp: Math.round(forecasted.list[20].main.temp),
                         day3Des: forecasted.list[19].weather[0].description,
-                        day4HighTemp: forecasted.list[27].main.temp,
-                        day4LowTemp: forecasted.list[28].main.temp,
+                        day4HighTemp: Math.round(forecasted.list[27].main.temp),
+                        day4LowTemp: Math.round(forecasted.list[28].main.temp),
                         day4Des: forecasted.list[27].weather[0].description,
-                        day5HighTemp: forecasted.list[35].main.temp,
-                        day5LowTemp: forecasted.list[36].main.temp,
-                        day5Des: forecasted.list[35].weather[0].description,
+                        day5HighTemp: Math.round(forecasted.list[35].main.temp),
+                        day5LowTemp: Math.round(forecasted.list[36].main.temp),
+                        day5Des: (forecasted.list[35].weather[0].description)
                     })
                 }));
+            }
+            getAPI();
+            setInterval(getAPI, 300000)
         });
     }
 
+    FahrenheitFunction = () => {
+        this.setState({
+            currentHighTemp: Math.round(this.state.currentHighTemp * (9 / 5) + 32),
+            currentLowTemp: Math.round(this.state.currentLowTemp * (9 / 5) + 32),
+            day2HighTemp: Math.round(this.state.day2HighTemp * (9 / 5) + 32),
+            day2LowTemp: Math.round(this.state.day2LowTemp * (9 / 5) + 32),
+            day3HighTemp: Math.round(this.state.day3HighTemp * (9 / 5) + 32),
+            day3LowTemp: Math.round(this.state.day3LowTemp * (9 / 5) + 32),
+            day4HighTemp: Math.round(this.state.day4HighTemp * (9 / 5) + 32),
+            day4LowTemp: Math.round(this.state.day4LowTemp * (9 / 5) + 32),
+            day5HighTemp: Math.round(this.state.day5HighTemp * (9 / 5) + 32),
+            day5LowTemp: Math.round(this.state.day5LowTemp * (9 / 5) + 32),
+            celsiusUnit: !this.state.celsiusUnit,
+            unit: "Fahrenheit"
+        })
+    }
+
+    CelsiusFunction = () => {
+        this.setState({
+            currentHighTemp: Math.round((this.state.currentHighTemp - 32) / (9 / 5)),
+            currentLowTemp: Math.round((this.state.currentLowTemp - 32) / (9 / 5)),
+            day2HighTemp: Math.round((this.state.day2HighTemp - 32) / (9 / 5)),
+            day2LowTemp: Math.round((this.state.day2LowTemp - 32) / (9 / 5)),
+            day3HighTemp: Math.round((this.state.day3HighTemp - 32) / (9 / 5)),
+            day3LowTemp: Math.round((this.state.day3LowTemp - 32) / (9 / 5)),
+            day4HighTemp: Math.round((this.state.day4HighTemp - 32) / (9 / 5)),
+            day4LowTemp: Math.round((this.state.day4LowTemp - 32) / (9 / 5)),
+            day5HighTemp: Math.round((this.state.day5HighTemp - 32) / (9 / 5)),
+            day5LowTemp: Math.round((this.state.day5LowTemp - 32) / (9 / 5)), 
+            celsiusUnit: !this.state.celsiusUnit,
+            unit: "Celsius"
+        })
+    }
+
     Click = () => {
-        const fahrenheit = this.state.celsius * (9 / 5) + 32;
-        if (this.state.currentHighTemp < fahrenheit) {
-            this.setState({
-                currentHighTemp: fahrenheit
-            });
-        } else {
-            this.setState({
-                currentHighTemp: this.state.celsius
-            });
+        if(this.state.celsiusUnit){
+            this.FahrenheitFunction()
+        }
+        else{
+            this.CelsiusFunction()
         }
     };
 
@@ -97,9 +126,9 @@ class Weather extends React.Component {
         const options = {weekday: "long", day:"numeric", month:"long"}
 
         day2.setDate(today.getDate()+1);
-        day3.setDate(today.getDate()+3);
-        day4.setDate(today.getDate()+4);
-        day5.setDate(today.getDate()+5);
+        day3.setDate(today.getDate()+2);
+        day4.setDate(today.getDate()+3);
+        day5.setDate(today.getDate()+4);
 
         today = today.toLocaleString("en-US", options)
         day2 = day2.toLocaleString("en-US", options)
@@ -115,6 +144,9 @@ class Weather extends React.Component {
                     <div>High: {this.state.currentHighTemp}</div>
                     <div>Low: {this.state.currentLowTemp}</div>
                     <div>Description: {this.state.currentDes}</div>
+                    <div>
+                        <img alt="Description of the weather"/>
+                    </div>
 
                     <div>{day2}</div>
                     <div>High: {this.state.day2HighTemp}</div>
@@ -137,7 +169,7 @@ class Weather extends React.Component {
                     <div>Description: {this.state.day5Des}</div>
                 </div> 
 
-                <button onClick={this.Click}>Toggle Settings</button>
+                <button onClick={this.Click}>{this.state.unit}</button>
             </div>
         );
     }
