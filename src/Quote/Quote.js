@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import './Quote.css';
 
 class Quote extends Component {
     state = {
@@ -17,9 +18,9 @@ class Quote extends Component {
     }
     render() {
         return (
-            <div className="quote">
-                <q>{this.state.quote}</q>
-                <p>{this.state.author}</p>
+            <div className="quote-body">
+                <q className="quote-text">{this.state.quote}</q>
+                <p className="quote-source">- {this.state.author}</p>
             </div>
         );
     }
