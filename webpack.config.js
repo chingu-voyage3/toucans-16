@@ -44,6 +44,10 @@ module.exports = {
             {
                 test: /\.(mp3|jpg|png|svg|gif)$/,
                 use: ["file-loader"]
+            },
+            {
+                test: /\.worker\.js$/,
+                use: { loader: "worker-loader" }
             }
         ]
     }
