@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
-import './Quote.css';
+// import axios from "axios";
+import "./Quote.css";
 
 class Quote extends Component {
     state = {
@@ -8,13 +8,13 @@ class Quote extends Component {
         author: ""
     };
     componentDidMount() {
-        const baseURL = "https://talaikis.com/api/quotes/random/";
-        axios.get(baseURL).then(response => {
+        // const baseURL = "https://talaikis.com/api/quotes/random/";
+        /* axios.get(baseURL).then(response => {
             this.setState({
                 quote: response.data.quote,
                 author: response.data.author
             });
-        });
+        }); */
     }
     render() {
         return (

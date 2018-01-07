@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 
 class TimerItem extends Component {
+    handleName = event =>
+        this.props.onHandleName(this.props.timer.id, event.target.value);
     handleSeconds = event => {
-        this.props.onSecondsChange(this.props.timer.id, event.target.value);
+        this.props.onHandleSeconds(this.props.timer.id, event.target.value);
     };
     handleMinutes = event => {
-        this.props.onMinutesChange(this.props.timer.id, event.target.value);
+        this.props.onHandleMinutes(this.props.timer.id, event.target.value);
     };
     handleHours = event => {
-        this.props.onHoursChange(this.props.timer.id, event.target.value);
+        this.props.onHandleHours(this.props.timer.id, event.target.value);
     };
     handleAdd = event => {
         event.preventDefault();
@@ -24,8 +26,6 @@ class TimerItem extends Component {
         event.preventDefault();
         this.props.onHandleDelete(this.props.timer.id);
     };
-    handleName = event =>
-        this.props.onHandleName(this.props.timer.id, event.target.value);
     render() {
         return (
             <div
