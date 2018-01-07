@@ -128,6 +128,7 @@ class Timer extends Component {
 
         if (running) {
             time -= 1;
+            if (time === 0) this.state.alarm.play();
             if (time < 0) {
                 idx += 1;
                 if (idx === this.state.timers.length) {
@@ -135,7 +136,7 @@ class Timer extends Component {
                         this.worker.postMessage("pause");
                         running = false;
                     }
-                    this.state.alarm.play();
+                    // this.state.alarm.play();
                     ringing = true;
                     setTimeout(() => {
                         this.setState({
@@ -260,9 +261,9 @@ class Timer extends Component {
                             onHandleAdd={this.handleAdd}
                             onHandleDelete={this.handleDelete}
                             onHandleName={this.handleName}
-                            onSecondsChange={this.handleSecondsChange}
-                            onMinutesChange={this.handleMinutesChange}
-                            onHoursChange={this.handleHoursChange}
+                            onHandleSeconds={this.handleSecondsChange}
+                            onHandleMinutes={this.handleMinutesChange}
+                            onHandleHours={this.handleHoursChange}
                         />
                     ))}
                     {!this.state.ringing ? (
