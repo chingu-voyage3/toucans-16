@@ -17,7 +17,10 @@ const WeatherDisplay = props =>
                 <span>{props.forecast[props.selected].day}</span>
             </h2>
             <h3>{props.desc}</h3>
-            <img src={props.cache[props.icon]} alt="weather-icon" />
+            <img
+                src={props.cache[props.forecast[props.selected].icon]}
+                alt="weather-icon"
+            />
             <h1>
                 <span>{props.forecast[props.selected].max}&#176;</span>
                 <span>{props.forecast[props.selected].min}&#176;</span>

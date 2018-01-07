@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Hideable extends Component {
     state = {
-        hidden: false
+        hidden: true
     };
     handleClick = () => {
         this.setState({
@@ -12,6 +12,11 @@ class Hideable extends Component {
     render() {
         return (
             <div>
+                {this.props.dir === "top" ? (
+                    <button onClick={this.handleClick}>
+                        {this.props.label}
+                    </button>
+                ) : null}
                 <div
                     style={{
                         visibility: this.state.hidden ? "hidden" : "visible"
@@ -19,7 +24,11 @@ class Hideable extends Component {
                 >
                     {this.props.children}
                 </div>
-                <button onClick={this.handleClick}>{this.props.label}</button>
+                {this.props.dir === "bottom" ? (
+                    <button onClick={this.handleClick}>
+                        {this.props.label}
+                    </button>
+                ) : null}
             </div>
         );
     }

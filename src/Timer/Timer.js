@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import _ from "lodash";
 import TimerItem from "./TimerItem";
 import Worker from "./timer.worker";
+import Hideable from "../Hideable";
 import ring from "./Ting-sound-effect.mp3";
 
 class Timer extends Component {
@@ -283,7 +284,11 @@ class Timer extends Component {
                 </div>
             );
         }
-        return display;
+        return (
+            <Hideable label="Timer" dir="top">
+                {display}
+            </Hideable>
+        );
     }
 }
 

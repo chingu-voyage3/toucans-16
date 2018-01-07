@@ -3,6 +3,7 @@ import axios from "axios";
 import _ from "lodash";
 import WeatherDisplay from "./WeatherDisplay";
 import WeatherButton from "./WeatherButton";
+import Hideable from "../Hideable";
 
 const cache = {};
 
@@ -84,7 +85,7 @@ class Weather extends Component {
     };
     render() {
         return (
-            <div>
+            <Hideable label="Weather" dir="top">
                 <WeatherDisplay
                     cache={cache}
                     city={this.state.city}
@@ -103,7 +104,7 @@ class Weather extends Component {
                         onDayChange={this.handleDayChange}
                     />
                 ))}
-            </div>
+            </Hideable>
         );
     }
 }
