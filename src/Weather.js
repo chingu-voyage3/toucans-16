@@ -4,7 +4,6 @@ import axios from "axios";
 57776b760d0fd5cbe7d9e08dca8140eb 
 Icon set - https://www.iconfinder.com/iconsets/weather-line-5 
 */
-
 class Weather extends React.Component {
     constructor(props) {
         super(props);
@@ -15,6 +14,7 @@ class Weather extends React.Component {
             currentHighTemp: "",
             currentLowTemp: "",
             currentDes: "",
+            currentIco: "",
             day2HighTemp: "",
             day2LowTemp: "",
             day2Des:"",
@@ -48,11 +48,14 @@ class Weather extends React.Component {
                     const current = currentWeatherRes.data;
                     const forecasted = forecast.data;
 
+                    console.log(current)
+                    console.log(current.weather[0].icon) // 04d
                     this.setState({
                         location: current.name,
                         currentHighTemp: current.main.temp_max,
                         currentLowTemp: current.main.temp_min,
                         currentDes: current.weather[0].description,
+                        currentIco: `./WeatherIcons/${current.weather[0].icon}.svg`,
                         day2HighTemp: Math.round(forecasted.list[11].main.temp),
                         day2LowTemp: Math.round(forecasted.list[12].main.temp),
                         day2Des: forecasted.list[11].weather[0].description,
@@ -136,6 +139,7 @@ class Weather extends React.Component {
         day4 = day4.toLocaleString("en-US", options)
         day5 = day5.toLocaleString("en-US", options)
 
+
         return (
             <div>
                 <div>
@@ -143,30 +147,31 @@ class Weather extends React.Component {
                     <div>Today</div>
                     <div>High: {this.state.currentHighTemp}</div>
                     <div>Low: {this.state.currentLowTemp}</div>
-                    <div>Description: {this.state.currentDes}</div>
+                    <div>{this.state.currentDes}</div>
+
                     <div>
-                        <img alt="Description of the weather"/>
+                        <img src={this.state.currentIco} alt={this.state.currentIco}/>
                     </div>
 
                     <div>{day2}</div>
                     <div>High: {this.state.day2HighTemp}</div>
                     <div>Low: {this.state.day2LowTemp}</div>
-                    <div>Description: {this.state.day2Des}</div>
+                    <div>{this.state.day2Des}</div>
 
                     <div>{day3}</div>
                     <div>High: {this.state.day3HighTemp}</div>
                     <div>Low: {this.state.day3LowTemp}</div>
-                    <div>Description: {this.state.day3Des}</div>
+                    <div>{this.state.day3Des}</div>
 
                     <div>{day4}</div>
                     <div>High: {this.state.day4HighTemp}</div>
                     <div>Low: {this.state.day4LowTemp}</div>
-                    <div>Description: {this.state.day4Des}</div>
+                    <div>{this.state.day4Des}</div>
                     
                     <div>{day5}</div>
                     <div>High: {this.state.day5HighTemp}</div>
                     <div>Low: {this.state.day5LowTemp}</div>
-                    <div>Description: {this.state.day5Des}</div>
+                    <div>{this.state.day5Des}</div>
                 </div> 
 
                 <button onClick={this.Click}>{this.state.unit}</button>

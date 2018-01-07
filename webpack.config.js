@@ -44,6 +44,13 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: ["file-loader"]
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader',
+                options: {
+                    attrs: [':img-src']
+                }
             }
         ]
     }
