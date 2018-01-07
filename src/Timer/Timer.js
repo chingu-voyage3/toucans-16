@@ -128,7 +128,8 @@ class Timer extends Component {
 
         if (running) {
             time -= 1;
-            if (time === 0) this.state.alarm.play();
+            if (time === 0 && idx === this.state.timers.length - 1)
+                this.state.alarm.play();
             if (time < 0) {
                 idx += 1;
                 if (idx === this.state.timers.length) {
@@ -136,7 +137,6 @@ class Timer extends Component {
                         this.worker.postMessage("pause");
                         running = false;
                     }
-                    // this.state.alarm.play();
                     ringing = true;
                     setTimeout(() => {
                         this.setState({
