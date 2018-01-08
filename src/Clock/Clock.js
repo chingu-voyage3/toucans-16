@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Clock.css";
+import "./clock.css";
 
 class Clock extends Component {
     state = {

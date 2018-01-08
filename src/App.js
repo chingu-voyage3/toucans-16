@@ -6,10 +6,11 @@ import Links from "./Links/Links";
 import Sounds from "./Sounds/Sounds";
 import Timer from "./Timer/Timer";
 import Weather from "./Weather/Weather";
-import "./App.css";
+import "./app.css";
 
 const App = () => (
     <div
+        className="container"
         style={{
             background: `url(https://source.unsplash.com/featured/${
                 window.screen.width

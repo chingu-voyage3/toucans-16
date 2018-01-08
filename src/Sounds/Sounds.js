@@ -2,6 +2,7 @@ import React from "react";
 import _ from "lodash";
 import Hideable from "../Hideable";
 import SoundsItem from "./SoundsItem";
+import "./sounds.css";
 
 const cache = {};
 const keys = {};
