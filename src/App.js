@@ -18,13 +18,27 @@ const App = () => (
             backgroundSize: "cover"
         }}
     >
-        <Todo />
-        <Clock />
-        <Quote />
-        <Links />
-        <Sounds />
-        <Timer />
-        <Weather />
+        <div className="container__todo">
+            <Todo />
+        </div>
+        <div className="container__clock">
+            <Clock />
+        </div>
+        <div className="container__quote">
+            <Quote />
+        </div>
+        <div className="container__links">
+            <Links />
+        </div>
+        <div className="container__sounds">
+            <Sounds />
+        </div>
+        <div className="container__timer">
+            <Timer />
+        </div>
+        <div className="container__weather">
+            <Weather />
+        </div>
     </div>
 );
 

@@ -1,7 +1,56 @@
 * {
     margin: 0;
     padding: 0;
+    border: 1px solid red;
 }
+
 .container {
     display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr auto 1fr;
+    grid-template-areas: "links timer weather" ". clock ." "sounds quote todo";
+    width: 100%;
+    height: 100%;
+}
+
+.container__links {
+    grid-area: links;
+    justify-self: left;
+    align-self: start;
+}
+
+.container__timer {
+    grid-area: timer;
+    justify-self: center;
+    align-self: start;
+}
+
+.container__weather {
+    grid-area: weather;
+    justify-self: right;
+    align-self: start;
+}
+
+.container__clock {
+    grid-area: clock;
+    justify-self: center;
+    align-self: center;
+}
+
+.container__sounds {
+    grid-area: sounds;
+    justify-self: left;
+    align-self: end;
+}
+
+.container__quote {
+    grid-area: quote;
+    justify-self: center;
+    align-self: end;
+}
+
+.container__todo {
+    grid-area: todo;
+    justify-self: right;
+    align-self: end;
 }
