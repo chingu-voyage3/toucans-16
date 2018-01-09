@@ -4,6 +4,7 @@ import _ from "lodash";
 import WeatherDisplay from "./WeatherDisplay";
 import WeatherButton from "./WeatherButton";
 import Hideable from "../Hideable";
+import "./weather.css";
 
 const cache = {};
 

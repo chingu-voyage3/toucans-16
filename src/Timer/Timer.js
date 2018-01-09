@@ -4,6 +4,7 @@ import TimerItem from "./TimerItem";
 import Worker from "./timer.worker";
 import Hideable from "../Hideable";
 import ring from "./Ting-sound-effect.mp3";
+import "./timer.css";
 
 class Timer extends Component {
     state = {
