@@ -14,8 +14,7 @@ const App = () => (
         style={{
             background: `url(https://source.unsplash.com/featured/${
                 window.screen.width
-            }x${window.screen.height}) no-repeat center center fixed`,
-            backgroundSize: "cover"
+            }x${window.screen.height}) center center cover no-repeat fixed`
         }}
     >
         <div className="container__todo">

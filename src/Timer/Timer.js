@@ -111,7 +111,7 @@ class Timer extends Component {
             this.worker.postMessage("start");
             this.setState({
                 running: true,
-                currTime: time
+                currTime: this.state.currTime === 0 ? time : this.state.currTime
             });
         }
     };
@@ -237,7 +237,7 @@ class Timer extends Component {
                 60 || 0;
         if (this.state.running) {
             display = (
-                <div>
+                <div className="timer__display">
                     <h1>
                         {`${hours
                             .toString()
@@ -252,7 +252,7 @@ class Timer extends Component {
             );
         } else {
             display = (
-                <div>
+                <div className="timer">
                     <h2>Custom Timer</h2>
                     {this.state.timers.map((timer, index) => (
                         <TimerItem
@@ -268,18 +268,21 @@ class Timer extends Component {
                             onHandleHours={this.handleHoursChange}
                         />
                     ))}
+                    <hr />
                     {!this.state.ringing ? (
-                        <div>
-                            <button onClick={this.handleClear}>CLEAR</button>
-                            <button onClick={this.handleStart}>START</button>
-                            <span>
+                        <div className="timer__control">
+                            <div className="timer__control__repeat">
+                                <span role="img" aria-label="repeat">
+                                    &#x1F501;
+                                </span>
                                 <input
                                     type="checkbox"
                                     onChange={this.toggleRepeat}
                                     checked={this.state.repeat}
                                 />
-                                <label>Repeat</label>
-                            </span>
+                            </div>
+                            <button onClick={this.handleStart}>Start</button>{" "}
+                            <button onClick={this.handleClear}>Clear</button>
                         </div>
                     ) : null}
                 </div>

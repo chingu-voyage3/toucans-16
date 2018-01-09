@@ -26,6 +26,7 @@ class Weather extends Component {
         temp: 0,
         desc: "",
         icon: "",
+        imperial: false,
         forecast: []
     };
     componentDidMount() {
@@ -51,26 +52,34 @@ class Weather extends Component {
                         "Sunday",
                         "Monday",
                         "Tuesday",
+                        "Wednesday",
                         "Thursday",
                         "Friday",
                         "Saturday"
                     ];
                     let dayNum = date.getDate();
                     for (let i = 0; i < 5; i += 1) {
+                        const min = Math.round(fore.data.data[i].min_temp);
+                        const max = Math.round(fore.data.data[i].max_temp);
                         forecast.push({
                             day: week[date.getDay()],
-                            min: Math.round(fore.data.data[i].min_temp),
-                            max: Math.round(fore.data.data[i].max_temp),
+                            min,
+                            max,
+                            minF: this.toFahrenheit(min),
+                            maxF: this.toFahrenheit(max),
                             icon: fore.data.data[i].weather.icon,
                             desc: fore.data.data[i].weather.description,
                             key: _.uniqueId()
                         });
-                        dayNum += 1;
+                        dayNum = (dayNum + 1) % 7;
                         date.setDate(dayNum);
                     }
                     this.setState({
                         city: curr.data.data[0].city_name,
                         temp: Math.round(curr.data.data[0].temp),
+                        tempF: this.toFahrenheit(
+                            Math.round(curr.data.data[0].temp)
+                        ),
                         desc: curr.data.data[0].weather.description,
                         icon: curr.data.data[0].weather.icon,
                         forecast
@@ -79,32 +88,45 @@ class Weather extends Component {
             );
         });
     };
+    toFahrenheit = c => Math.round(c * 9 / 5 + 32);
     handleDayChange = index => {
         this.setState({
             selected: index
         });
     };
+    convertUnits = () => {
+        this.setState({ imperial: !this.state.imperial });
+    };
     render() {
         return (
             <Hideable label="Weather" dir="top">
-                <WeatherDisplay
-                    cache={cache}
-                    city={this.state.city}
-                    temp={this.state.temp}
-                    desc={this.state.desc}
-                    icon={this.state.icon}
-                    selected={this.state.selected}
-                    forecast={this.state.forecast}
-                />
-                {this.state.forecast.map((forecast, index) => (
-                    <WeatherButton
+                <div className="weather">
+                    <WeatherDisplay
                         cache={cache}
-                        key={forecast.key}
-                        index={index}
-                        forecast={forecast}
-                        onDayChange={this.handleDayChange}
+                        imperial={this.state.imperial}
+                        city={this.state.city}
+                        temp={this.state.temp}
+                        tempF={this.state.tempF}
+                        desc={this.state.desc}
+                        icon={this.state.icon}
+                        selected={this.state.selected}
+                        forecast={this.state.forecast}
+                        onChangeUnits={this.convertUnits}
                     />
-                ))}
+                    <hr />
+                    <div className="weather__forecast">
+                        {this.state.forecast.map((forecast, index) => (
+                            <WeatherButton
+                                cache={cache}
+                                key={forecast.key}
+                                index={index}
+                                forecast={forecast}
+                                imperial={this.state.imperial}
+                                onDayChange={this.handleDayChange}
+                            />
+                        ))}
+                    </div>
+                </div>
             </Hideable>
         );
     }

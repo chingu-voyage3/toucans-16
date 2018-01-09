@@ -4,14 +4,29 @@ class Hideable extends Component {
     state = {
         hidden: true
     };
-    handleClick = () => {
+    handleClick = e => {
+        e.preventDefault();
         this.setState({
             hidden: !this.state.hidden
         });
     };
+    /* handleBlur = () => {
+        setTimeout(() => {
+            if (this.state.focus)
+                this.setState({
+                    focus: false
+                });
+        }, 0);
+    };
+    handleFocus = () => {
+        if (!this.state.focus)
+            this.setState({
+                focus: true
+            });
+    }; */
     render() {
         return (
-            <div>
+            <div style={{ textAlign: "center" }}>
                 {this.props.dir === "top" ? (
                     <button onClick={this.handleClick}>
                         {this.props.label}
