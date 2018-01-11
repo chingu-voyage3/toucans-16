@@ -1,13 +1,21 @@
-.live-clock {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1050%;
-    font-weight: 450;
-    text-align: center;
-    line-height: 1;
+.clock,
+.greeting {
     padding: 0;
     margin: 0;
     color: #fff;
+    text-align: center;
+    font-size: 300%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.clock {
+    font-size: 1050%;
+    font-weight: 450;
+    line-height: 1;
     letter-spacing: -5px;
-    -webkit-text-stroke: 1px #f6f6f6;
-    -webkit-font-smoothing: antialiased;
+    /* -webkit-text-stroke: 1px #f6f6f6;
+    -webkit-font-smoothing: antialiased; */
+}
+.greeting {
+    font-weight: 350;
+    margin-top: 10px;
 }

@@ -72,7 +72,12 @@ class Todo extends Component {
     render() {
         const visibleTodos = this.filterList(this.state.option);
         return (
-            <Hideable className="todo-container" label="Todo" dir="bottom">
+            <Hideable
+                className="todo-container"
+                label="Todo"
+                dir="bottom"
+                align="flex-end"
+            >
                 <h4>{visibleTodos.length} to do</h4>
                 <ul className="todo-list">
                     {visibleTodos.map(todo => (

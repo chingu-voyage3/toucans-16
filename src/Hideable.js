@@ -26,9 +26,20 @@ class Hideable extends Component {
     }; */
     render() {
         return (
-            <div style={{ textAlign: "center" }}>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    textAlign: "center"
+                }}
+            >
                 {this.props.dir === "top" ? (
-                    <button onClick={this.handleClick}>
+                    <button
+                        style={{ alignSelf: this.props.align }}
+                        onClick={this.handleClick}
+                    >
                         {this.props.label}
                     </button>
                 ) : null}
@@ -40,7 +51,10 @@ class Hideable extends Component {
                     {this.props.children}
                 </div>
                 {this.props.dir === "bottom" ? (
-                    <button onClick={this.handleClick}>
+                    <button
+                        style={{ alignSelf: this.props.align }}
+                        onClick={this.handleClick}
+                    >
                         {this.props.label}
                     </button>
                 ) : null}

@@ -289,7 +289,7 @@ class Timer extends Component {
             );
         }
         return (
-            <Hideable label="Timer" dir="top">
+            <Hideable label="Timer" dir="top" align="center">
                 {display}
             </Hideable>
         );

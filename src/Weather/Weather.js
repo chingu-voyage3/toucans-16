@@ -99,7 +99,7 @@ class Weather extends Component {
     };
     render() {
         return (
-            <Hideable label="Weather" dir="top">
+            <Hideable label="Weather" dir="top" align="flex-end">
                 <div className="weather">
                     <WeatherDisplay
                         cache={cache}

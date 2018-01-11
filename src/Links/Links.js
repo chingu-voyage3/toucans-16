@@ -40,7 +40,7 @@ class Links extends Component {
     };
     render() {
         return (
-            <Hideable label="Links" dir="top">
+            <Hideable label="Links" dir="top" align="flex-start">
                 <ul className="links-container">
                     {this.state.links.map(link => (
                         <LinksItem

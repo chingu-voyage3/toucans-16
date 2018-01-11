@@ -20,7 +20,7 @@ function importAll(r) {
 importAll(require.context("./audio/", true, /\.mp3$/));
 
 const Sounds = () => (
-    <Hideable label="Sounds" dir="bottom">
+    <Hideable label="Sounds" dir="bottom" align="flex-start">
         {Object.keys(cache).map(sound => (
             <SoundsItem key={keys[sound]} name={sound} src={cache[sound]} />
         ))}

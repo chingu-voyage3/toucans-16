@@ -28,7 +28,7 @@
     align-self: center;
     width: 300px;
 }
-.todo-item button {
+.todo-delete {
     background-color: black;
     opacity: 0.75;
     color: white;
@@ -36,6 +36,7 @@
     border: none;
     border-radius: 50%;
     visibility: hidden;
+    width: 19px;
 }
 .todo-item:hover .todo-delete {
     visibility: visible !important;
@@ -57,9 +58,9 @@
     color: white;
     outline: 0px !important;
     -webkit-appearance: none;
-    padding-left: 0.7em;
+    /*padding-left: 0.7em;
     padding-bottom: 0.5em;
-    padding-top: 1em;
+    padding-top: 1em;*/
 }
 .todo-input::placeholder {
     font-size: 16px;
