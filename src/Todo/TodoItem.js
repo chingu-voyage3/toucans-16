@@ -19,28 +19,30 @@ class TodoItem extends Component {
     render() {
         return (
             <li
-                className="todo-item"
+                className="todo__item"
                 draggable="true"
                 onDragStart={this.handleDragStart}
                 onDragOver={this.handleDragOver}
                 onDrop={this.handleDrop}
             >
-                <input
-                    type="checkbox"
-                    checked={this.props.completed}
-                    onChange={this.toggleCompleted}
-                />
-                <p
-                    className="todo-text"
-                    style={{
-                        textDecoration: this.props.completed
-                            ? "line-through"
-                            : "none"
-                    }}
-                >
-                    {this.props.value}
-                </p>
-                <button className="todo-delete" onClick={this.handleDelete}>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                    <input
+                        type="checkbox"
+                        checked={this.props.completed}
+                        onChange={this.toggleCompleted}
+                    />
+                    <p
+                        className="todo__text"
+                        style={{
+                            textDecoration: this.props.completed
+                                ? "line-through"
+                                : "none"
+                        }}
+                    >
+                        {this.props.value}
+                    </p>
+                </div>
+                <button className="todo__delete" onClick={this.handleDelete}>
                     x
                 </button>
             </li>

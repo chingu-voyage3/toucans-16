@@ -1,5 +1,5 @@
 .timer {
-    max-height: 300px;
+    max-height: 28vh;
     overflow-y: auto;
     overflow-x: none;
     background-color: black;
@@ -45,7 +45,7 @@
 .timer__control {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: auto;
     padding: 7px;
 }
@@ -56,6 +56,8 @@
     color: white;
     outline: 0;
     font-size: 16pt;
+    padding: 7px;
+    border-radius: 5px;
 }
 .timer__control > button:active {
     outline: 0;

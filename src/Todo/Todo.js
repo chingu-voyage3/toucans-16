@@ -78,38 +78,53 @@ class Todo extends Component {
                 dir="bottom"
                 align="flex-end"
             >
-                <h4>{visibleTodos.length} to do</h4>
-                <ul className="todo-list">
-                    {visibleTodos.map(todo => (
-                        <TodoItem
-                            id={todo.id}
-                            key={todo.id}
-                            value={todo.value}
-                            completed={todo.completed}
-                            onDeleteTodo={this.handleDeleteTodo}
-                            onDrop={this.handleDrop}
-                            onDragLeave={this.handleDragLeave}
-                            onCompleted={this.handleCompleted}
+                <div className="todo">
+                    <h4
+                        style={{
+                            color: "#d3d3d3",
+                            textAlign: "left",
+                            height: "4vh"
+                        }}
+                    >{`${visibleTodos.length} to do`}</h4>
+                    {this.state.todos.length === 0 ? (
+                        <div className="todo__nothing">
+                            <h2>There is nothing to do!</h2>
+                            <h1>&#x263A;</h1>
+                        </div>
+                    ) : null}
+                    <ul className="todo-list">
+                        {visibleTodos.map(todo => (
+                            <TodoItem
+                                id={todo.id}
+                                key={todo.id}
+                                value={todo.value}
+                                completed={todo.completed}
+                                onDeleteTodo={this.handleDeleteTodo}
+                                onDrop={this.handleDrop}
+                                onDragLeave={this.handleDragLeave}
+                                onCompleted={this.handleCompleted}
+                            />
+                        ))}
+                    </ul>
+                    <TodoInput onNewTodo={this.handleNewTodo} />
+                    <hr />
+                    <div className="todo__filter">
+                        <TodoFilter
+                            value="ALL"
+                            option={this.state.option}
+                            onOptionClick={this.filterType}
                         />
-                    ))}
-                </ul>
-                <TodoInput onNewTodo={this.handleNewTodo} />
-                <div className="filter-options">
-                    <TodoFilter
-                        value="ALL"
-                        option={this.state.option}
-                        onOptionClick={this.filterType}
-                    />
-                    <TodoFilter
-                        value="ACTIVE"
-                        option={this.state.option}
-                        onOptionClick={this.filterType}
-                    />
-                    <TodoFilter
-                        value="COMPLETED"
-                        option={this.state.option}
-                        onOptionClick={this.filterType}
-                    />
+                        <TodoFilter
+                            value="ACTIVE"
+                            option={this.state.option}
+                            onOptionClick={this.filterType}
+                        />
+                        <TodoFilter
+                            value="COMPLETED"
+                            option={this.state.option}
+                            onOptionClick={this.filterType}
+                        />
+                    </div>
                 </div>
             </Hideable>
         );

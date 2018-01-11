@@ -14,7 +14,7 @@ class TodoInput extends Component {
     render() {
         return (
             <input
-                className="todo-input"
+                className="todo__input"
                 type="text"
                 placeholder="New Todo"
                 value={this.state.value}

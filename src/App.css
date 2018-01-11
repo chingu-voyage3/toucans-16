@@ -9,7 +9,7 @@
     grid-gap: 5px;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: "links timer weather" ". clock ." "sounds quote todo";
+    grid-template-areas: "links timer weather" ". clock todo" "sounds quote todo";
     width: 100vw;
     height: 100vh;
     overflow: hidden;
