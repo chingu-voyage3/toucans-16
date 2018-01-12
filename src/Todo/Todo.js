@@ -9,7 +9,16 @@ import "./todo.css";
 class Todo extends Component {
     state = {
         option: "ALL",
-        todos: []
+        todos: JSON.parse(localStorage.getItem("todos")) || []
+    };
+    componentDidMount() {
+        window.addEventListener("beforeunload", this.onUnload);
+    }
+    componentWillUnmount() {
+        window.removeEventListener("beforeunload", this.onUnload);
+    }
+    onUnload = () => {
+        localStorage.setItem("todos", JSON.stringify(this.state.todos));
     };
     handleNewTodo = item => {
         if (item) {

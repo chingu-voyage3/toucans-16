@@ -8,7 +8,7 @@ import "./timer.css";
 
 class Timer extends Component {
     state = {
-        timers: [],
+        timers: JSON.parse(localStorage.getItem("timers")) || [],
         currIdx: 1,
         running: false,
         currTime: 0,
@@ -21,23 +21,31 @@ class Timer extends Component {
         this.worker.addEventListener("message", () => {
             this.handleWorker();
         });
-        this.setState({
-            timers: [
-                {
-                    name: "",
-                    secs: "",
-                    mins: "",
-                    hrs: "",
-                    id: _.uniqueId()
-                }
-            ]
-        });
+        if (this.state.timers.length === 0)
+            this.setState({
+                timers: [
+                    {
+                        name: "",
+                        secs: "",
+                        mins: "",
+                        hrs: "",
+                        id: _.uniqueId()
+                    }
+                ]
+            });
         this.state.alarm.volume = 1;
         this.state.alarm.playbackRate = 2;
     }
+    componentDidMount() {
+        window.addEventListener("beforeunload", this.onUnload);
+    }
     componentWillUnmount() {
         this.worker.terminate();
+        window.removeEventListener("beforeunload", this.onUnload);
     }
+    onUnload = () => {
+        localStorage.setItem("timers", JSON.stringify(this.state.timers));
+    };
     getSeconds = (secs, mins, hrs) => {
         const s = parseInt(secs, 10) || 0;
         const m = parseInt(mins, 10) || 0;
