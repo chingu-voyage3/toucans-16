@@ -26,7 +26,7 @@ class Weather extends Component {
         temp: 0,
         desc: "",
         icon: "",
-        imperial: false,
+        imperial: localStorage.getItem("weather-units") === "imperial",
         forecast: []
     };
     componentDidMount() {
@@ -95,27 +95,35 @@ class Weather extends Component {
         });
     };
     convertUnits = () => {
+        if (this.state.imperial)
+            localStorage.setItem("weather-units", "metric");
+        else localStorage.setItem("weather-units", "imperial");
         this.setState({ imperial: !this.state.imperial });
     };
     render() {
         const Button = (
             <div className="weather__toggle-btn">
+                <img src={cache[this.state.icon]} alt="weather-btn" />
                 <div
                     style={{
-                        display: "flex",
-                        alignContent: "center",
-                        justifyContent: "center",
+                        textAlign: "center",
                         border: "none"
                     }}
                 >
-                    <img src={cache[this.state.icon]} alt="weather-btn" />
-                    <div style={{ paddingTop: "5px" }}>
+                    <div style={{ fontSize: "24px" }}>
                         {this.state.imperial
                             ? this.state.tempF
                             : this.state.temp}&#176;
                     </div>
+                    <div
+                        style={{
+                            fontSize: "9px",
+                            opacity: "0.7"
+                        }}
+                    >
+                        {this.state.city.toUpperCase()}
+                    </div>
                 </div>
-                {this.state.city}
             </div>
         );
         return (

@@ -65,7 +65,7 @@ const WeatherDisplay = props => {
                         <label className="switch">
                             <input
                                 type="checkbox"
-                                checked={props.checked}
+                                checked={props.imperial}
                                 onChange={props.onChangeUnits}
                             />
                             <span className="slider round" />
