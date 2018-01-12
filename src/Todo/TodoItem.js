@@ -16,6 +16,21 @@ class TodoItem extends Component {
         evt.preventDefault();
         this.props.onDrop(evt.dataTransfer.getData("text"), this.props.id);
     };
+    handleEdit = () => {
+        if (!this.props.completed) {
+            setTimeout(() => {
+                const selection = window.getSelection();
+                const range = document.createRange();
+                selection.removeAllRanges();
+                range.selectNodeContents(this.textarea);
+                range.collapse(false);
+                selection.addRange(range);
+                this.textarea.focus();
+            }, 0);
+            this.props.onEdit(this.props.id);
+        }
+    };
+    handleBlur = () => this.props.onBlur(this.props.id);
     render() {
         return (
             <li
@@ -25,22 +40,33 @@ class TodoItem extends Component {
                 onDragOver={this.handleDragOver}
                 onDrop={this.handleDrop}
             >
-                <div style={{ display: "flex", alignItems: "center" }}>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
                     <input
                         type="checkbox"
                         checked={this.props.completed}
                         onChange={this.toggleCompleted}
+                        style={{ height: "20px" }}
                     />
-                    <p
+
+                    <div
+                        ref={textarea => {
+                            this.textarea = textarea;
+                        }}
+                        contentEditable={this.props.editing}
                         className="todo__text"
+                        onDoubleClick={this.handleEdit}
+                        onBlur={this.handleBlur}
+                        suppressContentEditableWarning="true"
                         style={{
+                            color: this.props.completed ? "#363636" : "white",
+                            outline: "0px solid transparent",
                             textDecoration: this.props.completed
                                 ? "line-through"
                                 : "none"
                         }}
                     >
                         {this.props.value}
-                    </p>
+                    </div>
                 </div>
                 <button className="todo__delete" onClick={this.handleDelete}>
                     x

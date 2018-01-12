@@ -23,8 +23,8 @@ class Clock extends Component {
     }
     render() {
         return (
-            <div>
-                <h1 className="clock">
+            <div className="clock">
+                <h1 className="clock__face">
                     {this.state.time.toLocaleTimeString("en-GB", {
                         hour: "2-digit",
                         minute: "2-digit"

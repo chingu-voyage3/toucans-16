@@ -37,10 +37,16 @@ class Hideable extends Component {
             >
                 {this.props.dir === "top" ? (
                     <button
-                        style={{ alignSelf: this.props.align }}
+                        style={{
+                            alignSelf: this.props.align,
+                            backgroundColor: "transparent",
+                            border: "0",
+                            color: "white",
+                            outline: "0"
+                        }}
                         onClick={this.handleClick}
                     >
-                        {this.props.label}
+                        <div style={{ opacity: "1" }}>{this.props.label}</div>
                     </button>
                 ) : null}
                 <div
@@ -52,7 +58,13 @@ class Hideable extends Component {
                 </div>
                 {this.props.dir === "bottom" ? (
                     <button
-                        style={{ alignSelf: this.props.align }}
+                        style={{
+                            alignSelf: this.props.align,
+                            backgroundColor: "transparent",
+                            border: "0",
+                            color: "white",
+                            outline: "0"
+                        }}
                         onClick={this.handleClick}
                     >
                         {this.props.label}

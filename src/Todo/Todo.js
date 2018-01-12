@@ -20,6 +20,7 @@ class Todo extends Component {
                         value: item,
                         deleted: false,
                         completed: false,
+                        editing: false,
                         id: _.uniqueId()
                     }
                 ]
@@ -69,6 +70,30 @@ class Todo extends Component {
             })
         });
     };
+    handleEdit = id => {
+        this.setState({
+            todos: this.state.todos.map(todo => {
+                if (todo.id === id)
+                    return {
+                        ...todo,
+                        editing: true
+                    };
+                return todo;
+            })
+        });
+    };
+    handleBlur = id => {
+        this.setState({
+            todos: this.state.todos.map(todo => {
+                if (todo.id === id)
+                    return {
+                        ...todo,
+                        editing: false
+                    };
+                return todo;
+            })
+        });
+    };
     render() {
         const visibleTodos = this.filterList(this.state.option);
         return (
@@ -92,17 +117,20 @@ class Todo extends Component {
                             <h1>&#x263A;</h1>
                         </div>
                     ) : null}
-                    <ul className="todo-list">
+                    <ul className="todo__list">
                         {visibleTodos.map(todo => (
                             <TodoItem
                                 id={todo.id}
                                 key={todo.id}
                                 value={todo.value}
+                                editing={todo.editing}
                                 completed={todo.completed}
                                 onDeleteTodo={this.handleDeleteTodo}
                                 onDrop={this.handleDrop}
                                 onDragLeave={this.handleDragLeave}
                                 onCompleted={this.handleCompleted}
+                                onEdit={this.handleEdit}
+                                onBlur={this.handleBlur}
                             />
                         ))}
                     </ul>

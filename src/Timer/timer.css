@@ -1,11 +1,15 @@
 .timer {
-    max-height: 28vh;
-    overflow-y: auto;
-    overflow-x: none;
     background-color: black;
     opacity: 0.8;
     color: white;
     border-radius: 5px;
+}
+.timer__list {
+    max-height: 20vh;
+    overflow-y: auto;
+    margin-right: 7px;
+    margin-bottom: 5px;
+    padding-right: 3px;
 }
 .timer__item {
     display: flex;
@@ -47,17 +51,18 @@
     align-items: center;
     justify-content: space-around;
     margin: auto;
-    padding: 7px;
+    padding: 3px;
 }
 .timer__control > button {
     border: none;
     background-color: black;
-    opacity: 0.8;
+
     color: white;
     outline: 0;
     font-size: 16pt;
     padding: 7px;
     border-radius: 5px;
+    margin-bottom: 3px;
 }
 .timer__control > button:active {
     outline: 0;

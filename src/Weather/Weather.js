@@ -98,8 +98,28 @@ class Weather extends Component {
         this.setState({ imperial: !this.state.imperial });
     };
     render() {
+        const Button = (
+            <div className="weather__toggle-btn">
+                <div
+                    style={{
+                        display: "flex",
+                        alignContent: "center",
+                        justifyContent: "center",
+                        border: "none"
+                    }}
+                >
+                    <img src={cache[this.state.icon]} alt="weather-btn" />
+                    <div style={{ paddingTop: "5px" }}>
+                        {this.state.imperial
+                            ? this.state.tempF
+                            : this.state.temp}&#176;
+                    </div>
+                </div>
+                {this.state.city}
+            </div>
+        );
         return (
-            <Hideable label="Weather" dir="top" align="flex-end">
+            <Hideable label={Button} dir="top" align="flex-end">
                 <div className="weather">
                     <WeatherDisplay
                         cache={cache}

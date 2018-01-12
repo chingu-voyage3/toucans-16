@@ -254,20 +254,22 @@ class Timer extends Component {
             display = (
                 <div className="timer">
                     <h2>Custom Timer</h2>
-                    {this.state.timers.map((timer, index) => (
-                        <TimerItem
-                            key={timer.id}
-                            timer={timer}
-                            highlight={this.state.currIdx === index}
-                            set={index !== 0}
-                            onHandleAdd={this.handleAdd}
-                            onHandleDelete={this.handleDelete}
-                            onHandleName={this.handleName}
-                            onHandleSeconds={this.handleSecondsChange}
-                            onHandleMinutes={this.handleMinutesChange}
-                            onHandleHours={this.handleHoursChange}
-                        />
-                    ))}
+                    <div className="timer__list">
+                        {this.state.timers.map((timer, index) => (
+                            <TimerItem
+                                key={timer.id}
+                                timer={timer}
+                                highlight={this.state.currIdx === index}
+                                set={index !== 0}
+                                onHandleAdd={this.handleAdd}
+                                onHandleDelete={this.handleDelete}
+                                onHandleName={this.handleName}
+                                onHandleSeconds={this.handleSecondsChange}
+                                onHandleMinutes={this.handleMinutesChange}
+                                onHandleHours={this.handleHoursChange}
+                            />
+                        ))}
+                    </div>
                     <hr />
                     {!this.state.ringing ? (
                         <div className="timer__control">

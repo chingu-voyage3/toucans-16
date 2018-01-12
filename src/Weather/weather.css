@@ -145,3 +145,7 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+.weather__toggle-btn > div > img {
+    width: 30px;
+    height: 30px;
+}

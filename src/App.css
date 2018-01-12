@@ -9,7 +9,7 @@
     grid-gap: 5px;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: "links timer weather" ". clock todo" "sounds quote todo";
+    grid-template-areas: "links timer weather" "links clock todo" "sounds quote todo";
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -93,4 +93,21 @@ hr {
 }
 .app__input:focus {
     color: white;
+}
+::-webkit-scrollbar {
+    width: 10px;
+
+    background-color: rgba(255, 255, 255, 1);
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:vertical {
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:vertical:active {
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
 }

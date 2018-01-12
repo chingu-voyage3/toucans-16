@@ -27,6 +27,7 @@
 }
 .todo-text {
     /* width: 17em; */
+
 /* overflow-wrap: break-word;
     margin: 0.25em auto;
     padding: 0.25em auto;
@@ -41,6 +42,7 @@
     /*padding-left: 0.7em;
     padding-bottom: 0.5em;
     padding-top: 1em;*/
+
 /*}
 .todo-input::placeholder {
     font-size: 16px;
@@ -55,9 +57,8 @@
     margin-top: 1em;
 }
 */
+
 .todo {
-    max-height: 50vh;
-    overflow-y: auto;
     background-color: black;
     opacity: 0.8;
     color: white;
@@ -65,49 +66,64 @@
     border: 0;
     padding: 12px;
 }
+
+.todo__list {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
 .todo .todo__nothing {
     height: 10vh;
     padding: 3px;
+    color: #d3d3d3;
+    opacity: 0.6;
 }
+
 .todo__nothing > h1 {
     font-size: 60pt;
 }
+
 .todo__item {
     display: flex;
     flex-wrap: no-wrap;
-    align-items: center;
+    align-items: flex-start;
     align-content: center;
     justify-content: space-between;
     align-self: center;
-    width: 300px;
+    width: 320px;
 }
+
 .todo__text {
     padding-left: 6px;
-    width: 17em;
+    width: 258px;
     overflow-wrap: break-word;
-    margin: 0.25em auto;
-    padding: 0.25em auto;
+    text-align: left;
+    font-size: 12pt;
 }
+
 .todo__delete {
     width: 19px;
     border-radius: 50%;
-    height: 20px;
+    height: 19px;
     outline: 0;
     background-color: black;
     opacity: 0.8;
     color: white;
-    margin-top: 2px;
-    padding-bottom: 3px;
     border: none;
     visibility: hidden;
+    margin-right: 3px;
+    margin-left: 3px;
 }
+
 .todo__item:hover .todo__delete {
     visibility: visible !important;
 }
+
 .todo__delete:hover {
     border: 2px solid white;
     visibility: visible !important;
 }
+
 .todo__input {
     width: 300px;
     border: none;
@@ -120,31 +136,38 @@
     padding-top: 1em;*/
     padding-top: 15px;
 }
+
 .todo__input::placeholder {
     font-size: 14px;
     font-weight: bold;
 }
+
 .todo__input > input:hover,
 .todo__input > input:active {
     outline: 0px !important;
     -webkit-appearance: none;
 }
+
 .todo__filter {
     display: flex;
     justify-content: space-around;
     align-content: center;
-    padding: 7px;
 }
+
 .todo__filter > a {
     text-decoration: none;
     color: white;
 }
+
 .todo__filter__btn {
     background-color: #363636;
     padding: 7px;
     border-radius: 5px;
+    margin-top: 3px;
 }
+
 .todo__filter__btn--off {
     padding: 7px;
     border-radius: 5px;
+    margin-top: 3px;
 }
