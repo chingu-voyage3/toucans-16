@@ -28,6 +28,7 @@ yarn-error.log*
 build/
 dist/bundle.js
 dist/*.mp3
+dist/*.png
 
 ### SublimeText ###
 # cache files for sublime text

@@ -7,9 +7,13 @@ class FilterOption extends Component {
     };
     render() {
         return this.props.option === this.props.value ? (
-            <h4>{this.props.value}</h4>
+            <h4 className="todo__filter__btn">{this.props.value}</h4>
         ) : (
-            <a href="" onClick={this.filterType}>
+            <a
+                className="todo__filter__btn--off"
+                href=""
+                onClick={this.filterType}
+            >
                 <h4>{this.props.value}</h4>
             </a>
         );

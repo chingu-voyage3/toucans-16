@@ -4,23 +4,21 @@ import "./Quote.css";
 
 class Quote extends Component {
     state = {
-        quote: "",
-        author: ""
+        quote: ""
     };
     componentDidMount() {
         const baseURL = "https://talaikis.com/api/quotes/random/";
+
         axios.get(baseURL).then(response => {
             this.setState({
-                quote: response.data.quote,
-                author: response.data.author
+                quote: response.data.quote
             });
         });
     }
     render() {
         return (
-            <div className="quote-body">
-                <q className="quote-text">{this.state.quote}</q>
-                <p className="quote-source">- {this.state.author}</p>
+            <div className="quote">
+                <q>{this.state.quote}</q>
             </div>
         );
     }

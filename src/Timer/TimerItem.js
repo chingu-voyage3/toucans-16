@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./timer.css";
 
 class TimerItem extends Component {
     handleName = event =>
@@ -29,47 +30,57 @@ class TimerItem extends Component {
     render() {
         return (
             <div
+                className="timer__item"
                 style={{
-                    color: this.props.highlight ? "red" : "black"
+                    color: this.props.highlight ? "red" : "white"
                 }}
             >
                 <input
                     type="text"
+                    className="timer__item__name"
                     placeholder="Period Name"
                     value={this.props.timer.name}
                     onChange={this.handleName}
                 />
-                <span>
-                    <input
-                        type="text"
-                        placeholder="00"
-                        value={this.props.timer.hrs}
-                        onChange={this.handleHours}
-                    />
-                    H:
-                </span>
-                <span>
-                    <input
-                        type="text"
-                        placeholder="00"
-                        value={this.props.timer.mins}
-                        onChange={this.handleMinutes}
-                    />
-                    M:
-                </span>
-                <span>
-                    <input
-                        type="text"
-                        placeholder="00"
-                        value={this.props.timer.secs}
-                        onChange={this.handleSeconds}
-                    />
-                    S
-                </span>
+                <input
+                    type="text"
+                    className="timer__item__number"
+                    placeholder="00"
+                    value={this.props.timer.hrs}
+                    onChange={this.handleHours}
+                />
+                <pre>H: </pre>
+                <input
+                    type="text"
+                    className="timer__item__number"
+                    placeholder="00"
+                    value={this.props.timer.mins}
+                    onChange={this.handleMinutes}
+                />
+                <pre>M: </pre>
+                <input
+                    type="text"
+                    className="timer__item__number"
+                    placeholder="00"
+                    value={this.props.timer.secs}
+                    onChange={this.handleSeconds}
+                />
+                <pre>S </pre>
+
                 {this.props.set ? (
-                    <button onClick={this.handleDelete}>-</button>
+                    <button
+                        className="timer__item__btn"
+                        onClick={this.handleDelete}
+                    >
+                        -
+                    </button>
                 ) : (
-                    <button onClick={this.handleAdd}>+</button>
+                    <button
+                        className="timer__item__btn"
+                        onClick={this.handleAdd}
+                    >
+                        +
+                    </button>
                 )}
             </div>
         );

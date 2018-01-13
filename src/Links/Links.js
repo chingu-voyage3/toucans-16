@@ -7,7 +7,16 @@ import "./links.css";
 
 class Links extends Component {
     state = {
-        links: []
+        links: JSON.parse(localStorage.getItem("links")) || []
+    };
+    componentDidMount() {
+        window.addEventListener("beforeunload", this.onUnload);
+    }
+    componentWillUnmount() {
+        window.removeEventListener("beforeunload", this.onUnload);
+    }
+    onUnload = () => {
+        localStorage.setItem("links", JSON.stringify(this.state.links));
     };
     handleAdd = (name, url) => {
         this.setState({
@@ -40,7 +49,13 @@ class Links extends Component {
     };
     render() {
         return (
-            <Hideable label="Links" dir="top">
+            <Hideable
+                label="Links"
+                dir="top"
+                align="flex-start"
+                margin="1.5vmin 0 1vmin 2vmin"
+                childMargin="0 0 0 1vmin"
+            >
                 <div className="pane">
                     <ul className="links-container">
                         {this.state.links.map(link => (
@@ -59,7 +74,6 @@ class Links extends Component {
                     <LinksInput onHandleAdd={this.handleAdd} />
                 </div>
             </Hideable>
-            
         );
     }
 }

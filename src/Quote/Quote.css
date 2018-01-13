@@ -1,4 +1,4 @@
-.quote-body {
+.quote {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: white;
     /*position: fixed;*/
@@ -6,10 +6,12 @@
     left: 0;
     width: 100%;
     text-align: center;
-    text-shadow: 1px 0px black;
+    /*text-shadow: 1px 0px black;*/
+    font-size: 1.6vmin;
+    margin-bottom: 1.5vmin;
 }
-
-.quote-source {
-    font-style: italic;
-    font-weight: bold;
+@media (max-width: 800px) {
+    .quote {
+        font-size: 3.2vmin;
+    }
 }

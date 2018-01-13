@@ -8,7 +8,7 @@ import "./timer.css";
 
 class Timer extends Component {
     state = {
-        timers: [],
+        timers: JSON.parse(localStorage.getItem("timers")) || [],
         currIdx: 1,
         running: false,
         currTime: 0,
@@ -21,23 +21,31 @@ class Timer extends Component {
         this.worker.addEventListener("message", () => {
             this.handleWorker();
         });
-        this.setState({
-            timers: [
-                {
-                    name: "",
-                    secs: "",
-                    mins: "",
-                    hrs: "",
-                    id: _.uniqueId()
-                }
-            ]
-        });
+        if (this.state.timers.length === 0)
+            this.setState({
+                timers: [
+                    {
+                        name: "",
+                        secs: "",
+                        mins: "",
+                        hrs: "",
+                        id: _.uniqueId()
+                    }
+                ]
+            });
         this.state.alarm.volume = 1;
         this.state.alarm.playbackRate = 2;
     }
+    componentDidMount() {
+        window.addEventListener("beforeunload", this.onUnload);
+    }
     componentWillUnmount() {
         this.worker.terminate();
+        window.removeEventListener("beforeunload", this.onUnload);
     }
+    onUnload = () => {
+        localStorage.setItem("timers", JSON.stringify(this.state.timers));
+    };
     getSeconds = (secs, mins, hrs) => {
         const s = parseInt(secs, 10) || 0;
         const m = parseInt(mins, 10) || 0;
@@ -111,7 +119,7 @@ class Timer extends Component {
             this.worker.postMessage("start");
             this.setState({
                 running: true,
-                currTime: time
+                currTime: this.state.currTime === 0 ? time : this.state.currTime
             });
         }
     };
@@ -237,7 +245,7 @@ class Timer extends Component {
                 60 || 0;
         if (this.state.running) {
             display = (
-                <div>
+                <div className="timer__display">
                     <h1>
                         {`${hours
                             .toString()
@@ -252,41 +260,51 @@ class Timer extends Component {
             );
         } else {
             display = (
-                <div>
+                <div className="timer">
                     <h2>Custom Timer</h2>
-                    {this.state.timers.map((timer, index) => (
-                        <TimerItem
-                            key={timer.id}
-                            timer={timer}
-                            highlight={this.state.currIdx === index}
-                            set={index !== 0}
-                            onHandleAdd={this.handleAdd}
-                            onHandleDelete={this.handleDelete}
-                            onHandleName={this.handleName}
-                            onHandleSeconds={this.handleSecondsChange}
-                            onHandleMinutes={this.handleMinutesChange}
-                            onHandleHours={this.handleHoursChange}
-                        />
-                    ))}
+                    <div className="timer__list">
+                        {this.state.timers.map((timer, index) => (
+                            <TimerItem
+                                key={timer.id}
+                                timer={timer}
+                                highlight={this.state.currIdx === index}
+                                set={index !== 0}
+                                onHandleAdd={this.handleAdd}
+                                onHandleDelete={this.handleDelete}
+                                onHandleName={this.handleName}
+                                onHandleSeconds={this.handleSecondsChange}
+                                onHandleMinutes={this.handleMinutesChange}
+                                onHandleHours={this.handleHoursChange}
+                            />
+                        ))}
+                    </div>
+                    <hr />
                     {!this.state.ringing ? (
-                        <div>
-                            <button onClick={this.handleClear}>CLEAR</button>
-                            <button onClick={this.handleStart}>START</button>
-                            <span>
+                        <div className="timer__control">
+                            <div className="timer__control__repeat">
+                                <span role="img" aria-label="repeat">
+                                    &#x1F501;
+                                </span>
                                 <input
                                     type="checkbox"
                                     onChange={this.toggleRepeat}
                                     checked={this.state.repeat}
                                 />
-                                <label>Repeat</label>
-                            </span>
+                            </div>
+                            <button onClick={this.handleStart}>Start</button>{" "}
+                            <button onClick={this.handleClear}>Clear</button>
                         </div>
                     ) : null}
                 </div>
             );
         }
         return (
-            <Hideable label="Timer" dir="top">
+            <Hideable
+                label="Timer"
+                dir="top"
+                align="center"
+                margin="1.5vmin 0 1vmin 0"
+            >
                 {display}
             </Hideable>
         );
