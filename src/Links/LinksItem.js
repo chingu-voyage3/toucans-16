@@ -24,10 +24,10 @@ class LinksItem extends Component {
                     src={`http://grabicon.com/icon?domain=${this.props.url}`}
                     alt={`${this.props.name} icon`}
                 />
-                <a href={this.props.url} target="_blank">
+                <a href={this.props.url} target="_blank" className="site-name">
                     {this.props.name}
                 </a>
-                <button onClick={this.handleDelete}>x</button>
+                <button onClick={this.handleDelete} className="remove-link">x</button>
             </li>
         );
     }

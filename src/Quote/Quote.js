@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./quote.css";
+import "./Quote.css";
 
 class Quote extends Component {
     state = {

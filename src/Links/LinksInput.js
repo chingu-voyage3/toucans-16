@@ -42,23 +42,25 @@ class LinksInput extends Component {
                     <input
                         type="text"
                         placeholder="Name"
+                        className="input-name"
                         value={this.state.name}
                         onChange={this.handleNameChange}
                         onKeyUp={this.handleKeyUp}
                         autoFocus
                     />
-                    <button onClick={this.handleClose}>x</button>
+                    <button onClick={this.handleClose} className="cancel-link">x</button>
                 </div>
                 <input
                     type="text"
                     placeholder="URL"
+                    className="url-name"
                     value={this.state.url}
                     onChange={this.handleURLChange}
                     onKeyUp={this.handleKeyUp}
                 />
             </div>
         ) : (
-            <a href="" onClick={this.handleClick}>
+            <a href="" onClick={this.handleClick} className="new-link">
                 New Link
             </a>
         );

@@ -6,7 +6,8 @@ import Links from "./Links/Links";
 import Sounds from "./Sounds/Sounds";
 import Timer from "./Timer/Timer";
 import Weather from "./Weather/Weather";
-import "./app.css";
+import "./App.css";
+
 
 class App extends Component {
     handleKeyUp = event => {
