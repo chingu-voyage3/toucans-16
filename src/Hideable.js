@@ -25,6 +25,15 @@ class Hideable extends Component {
             });
     }; */
     render() {
+        const btnStyle = {
+            alignSelf: this.props.align,
+            backgroundColor: "transparent",
+            border: "0",
+            color: "white",
+            outline: "0",
+            margin: this.props.margin
+            // fontSize: "1.5vmin"
+        };
         return (
             <div
                 style={{
@@ -37,13 +46,8 @@ class Hideable extends Component {
             >
                 {this.props.dir === "top" ? (
                     <button
-                        style={{
-                            alignSelf: this.props.align,
-                            backgroundColor: "transparent",
-                            border: "0",
-                            color: "white",
-                            outline: "0"
-                        }}
+                        className="hideable"
+                        style={btnStyle}
                         onClick={this.handleClick}
                     >
                         <div style={{ opacity: "1" }}>{this.props.label}</div>
@@ -51,20 +55,19 @@ class Hideable extends Component {
                 ) : null}
                 <div
                     style={{
-                        visibility: this.state.hidden ? "hidden" : "visible"
+                        /* visibility: this.state.hidden ? "hidden" : "visible", */
+                        opacity: this.state.hidden ? "0" : "1",
+                        WebkitTransition: "0.3s",
+                        transition: "0.3s",
+                        margin: this.props.childMargin
                     }}
                 >
                     {this.props.children}
                 </div>
                 {this.props.dir === "bottom" ? (
                     <button
-                        style={{
-                            alignSelf: this.props.align,
-                            backgroundColor: "transparent",
-                            border: "0",
-                            color: "white",
-                            outline: "0"
-                        }}
+                        className="hideable"
+                        style={btnStyle}
                         onClick={this.handleClick}
                     >
                         {this.props.label}

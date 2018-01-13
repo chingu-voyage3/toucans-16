@@ -11,7 +11,7 @@ class Clock extends Component {
         setInterval(() => this.currentTime(), 1000);
     }
     currentTime() {
-        const hour = this.state.time.getTime();
+        const hour = this.state.time.getHours();
         let greet;
         if (hour < 12) greet = "morning";
         else if (hour < 17) greet = "afternoon";

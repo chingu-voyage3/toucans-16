@@ -102,7 +102,7 @@ class Weather extends Component {
     };
     render() {
         const Button = (
-            <div className="weather__toggle-btn">
+            <div className="weather__toggle">
                 <img src={cache[this.state.icon]} alt="weather-btn" />
                 <div
                     style={{
@@ -110,24 +110,25 @@ class Weather extends Component {
                         border: "none"
                     }}
                 >
-                    <div style={{ fontSize: "24px" }}>
+                    <div className="weather__toggle__temp">
                         {this.state.imperial
                             ? this.state.tempF
                             : this.state.temp}&#176;
                     </div>
-                    <div
-                        style={{
-                            fontSize: "9px",
-                            opacity: "0.7"
-                        }}
-                    >
+                    <div className="weather__toggle__city">
                         {this.state.city.toUpperCase()}
                     </div>
                 </div>
             </div>
         );
         return (
-            <Hideable label={Button} dir="top" align="flex-end">
+            <Hideable
+                label={Button}
+                dir="top"
+                align="flex-end"
+                margin="2vmin 2vmax 0 0"
+                childMargin="0 1vmin 0 0"
+            >
                 <div className="weather">
                     <WeatherDisplay
                         cache={cache}
