@@ -41,22 +41,25 @@ class Links extends Component {
     render() {
         return (
             <Hideable label="Links" dir="top">
-                <ul className="links-container">
-                    {this.state.links.map(link => (
-                        <LinksItem
-                            id={link.id}
-                            key={link.id}
-                            name={link.name}
-                            url={link.url}
-                            onHandleDelete={this.handleDelete}
-                            onDragStart={this.handleDragStart}
-                            onDragOver={this.handleDragOver}
-                            onDrop={this.handleDragDrop}
-                        />
-                    ))}
-                </ul>
-                <LinksInput onHandleAdd={this.handleAdd} />
+                <div className="pane">
+                    <ul className="links-container">
+                        {this.state.links.map(link => (
+                            <LinksItem
+                                id={link.id}
+                                key={link.id}
+                                name={link.name}
+                                url={link.url}
+                                onHandleDelete={this.handleDelete}
+                                onDragStart={this.handleDragStart}
+                                onDragOver={this.handleDragOver}
+                                onDrop={this.handleDragDrop}
+                            />
+                        ))}
+                    </ul>
+                    <LinksInput onHandleAdd={this.handleAdd} />
+                </div>
             </Hideable>
+            
         );
     }
 }

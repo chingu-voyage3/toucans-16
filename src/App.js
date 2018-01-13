@@ -5,7 +5,7 @@ import Clock from "./Clock/Clock";
 import Links from "./Links/Links";
 import Sounds from "./Sounds/Sounds";
 import Timer from "./Timer/Timer";
-import Weather from "./Weather/Weather";
+// import Weather from "./Weather/Weather";
 import "./App.css";
 
 const App = () => (
@@ -37,7 +37,7 @@ const App = () => (
             <Timer />
         </div>
         <div className="container__weather">
-            <Weather />
+            {/* <Weather /> */}
         </div>
     </div>
 );
