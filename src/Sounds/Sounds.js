@@ -24,7 +24,7 @@ const Sounds = () => (
         label="Sounds"
         dir="bottom"
         align="flex-start"
-        margin="0 0 2vmin 2vmax"
+        margin="1vmin 0 1.5vmin 2vmin"
         childMargin="0 0 0 1vmin"
     >
         {Object.keys(cache).map(sound => (

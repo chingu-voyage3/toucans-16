@@ -111,7 +111,7 @@ class Todo extends Component {
                 label="Todo"
                 dir="bottom"
                 align="flex-end"
-                margin="0 2vmax 2vmin 0"
+                margin="1vmin 2vmin 1.5vmin 0"
                 childMargin="0 1vmin 0 0"
             >
                 <div className="todo">

@@ -53,7 +53,7 @@ class Links extends Component {
                 label="Links"
                 dir="top"
                 align="flex-start"
-                margin="2vmin 0 0 2vmax"
+                margin="1.5vmin 0 1vmin 2vmin"
                 childMargin="0 0 0 1vmin"
             >
                 <ul className="links-container">

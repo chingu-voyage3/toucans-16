@@ -8,7 +8,7 @@
     text-align: center;
     /*text-shadow: 1px 0px black;*/
     font-size: 1.6vmin;
-    margin-bottom: 12px;
+    margin-bottom: 1.5vmin;
 }
 @media (max-width: 800px) {
     .quote {

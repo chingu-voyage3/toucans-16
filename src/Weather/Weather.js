@@ -126,7 +126,7 @@ class Weather extends Component {
                 label={Button}
                 dir="top"
                 align="flex-end"
-                margin="2vmin 2vmax 0 0"
+                margin="1.5vmin 2vmin 1vmin 0"
                 childMargin="0 1vmin 0 0"
             >
                 <div className="weather">

@@ -303,7 +303,7 @@ class Timer extends Component {
                 label="Timer"
                 dir="top"
                 align="center"
-                margin="12px 0 0 0"
+                margin="1.5vmin 0 1vmin 0"
             >
                 {display}
             </Hideable>
