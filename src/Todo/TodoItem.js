@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./todo.css";
+import "./Todo.css";
 
 class TodoItem extends Component {
     toggleCompleted = () => {

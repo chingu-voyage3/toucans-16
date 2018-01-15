@@ -4,7 +4,6 @@ import "./Clock.css";
 class Clock extends Component {
     state = {
         time: new Date(),
-        name: localStorage.getItem("name"),
         greet: ""
     };
     componentWillMount() {
@@ -31,7 +30,7 @@ class Clock extends Component {
                     })}
                 </h1>
                 <h2 className="greeting">{`Good ${this.state.greet}, ${
-                    this.state.name
+                    this.props.name
                 }.`}</h2>
             </div>
         );

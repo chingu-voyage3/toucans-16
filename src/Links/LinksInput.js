@@ -28,39 +28,54 @@ class LinksInput extends Component {
             this.state.url.length
         ) {
             let link = this.state.url;
-            if (!link.toString().startsWith("https://"))
-                link = "https://".concat(link);
+            if (!link.toString().startsWith("http://"))
+                link = "http://".concat(link);
             this.props.onHandleAdd(this.state.name, link);
-            this.handleClose();
+            this.setState({
+                name: "",
+                url: ""
+            });
+            this.nameInput.focus();
         }
     };
     handleClose = () => this.setState({ clicked: false, name: "", url: "" });
     render() {
         return this.state.clicked ? (
-            <div>
+            <div className="links__input">
                 <div>
                     <input
+                        ref={name => {
+                            this.nameInput = name;
+                        }}
                         type="text"
                         placeholder="Name"
-                        className="input-name"
                         value={this.state.name}
                         onChange={this.handleNameChange}
                         onKeyUp={this.handleKeyUp}
                         autoFocus
+                        maxLength="20"
                     />
-                    <button onClick={this.handleClose} className="cancel-link">x</button>
+                    <input
+                        ref={url => {
+                            this.urlInput = url;
+                        }}
+                        type="text"
+                        placeholder="URL"
+                        value={this.state.url}
+                        onChange={this.handleURLChange}
+                        onKeyUp={this.handleKeyUp}
+                    />
                 </div>
-                <input
-                    type="text"
-                    placeholder="URL"
-                    className="url-name"
-                    value={this.state.url}
-                    onChange={this.handleURLChange}
-                    onKeyUp={this.handleKeyUp}
-                />
+                <button
+                    className="links__input__delete"
+                    onClick={this.handleClose}
+                    tabIndex="-1"
+                >
+                    x
+                </button>
             </div>
         ) : (
-            <a href="" onClick={this.handleClick} className="new-link">
+            <a href="" className="links__input__new" onClick={this.handleClick}>
                 New Link
             </a>
         );

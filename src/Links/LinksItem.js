@@ -14,20 +14,29 @@ class LinksItem extends Component {
         return (
             <li
                 id={this.props.id}
-                className="links-item"
+                className="links__item"
                 draggable="true"
                 onDragStart={this.handleDragStart}
                 onDragOver={this.handleDragOver}
                 onDrop={this.handleDrop}
             >
-                <img
-                    src={`http://grabicon.com/icon?domain=${this.props.url}`}
-                    alt={`${this.props.name} icon`}
-                />
-                <a href={this.props.url} target="_blank" className="site-name">
-                    {this.props.name}
-                </a>
-                <button onClick={this.handleDelete} className="remove-link">x</button>
+                <div className="links__item__link">
+                    <img
+                        src={`http://grabicon.com/icon?domain=${
+                            this.props.url
+                        }`}
+                        alt={`${this.props.name} icon`}
+                    />
+                    <a href={this.props.url} target="_blank">
+                        {this.props.name}
+                    </a>
+                </div>
+                <button
+                    className="links__item__delete"
+                    onClick={this.handleDelete}
+                >
+                    x
+                </button>
             </li>
         );
     }

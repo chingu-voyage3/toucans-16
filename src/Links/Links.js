@@ -3,20 +3,30 @@ import _ from "lodash";
 import Hideable from "../Hideable";
 import LinksItem from "./LinksItem";
 import LinksInput from "./LinksInput";
-import "./links.css";
+import "./Links.css";
 
 class Links extends Component {
     state = {
-        links: JSON.parse(localStorage.getItem("links")) || []
+        links: []
     };
     componentDidMount() {
         window.addEventListener("beforeunload", this.onUnload);
+        this.loadSavedData();
     }
     componentWillUnmount() {
         window.removeEventListener("beforeunload", this.onUnload);
     }
     onUnload = () => {
         localStorage.setItem("links", JSON.stringify(this.state.links));
+    };
+    loadSavedData = () => {
+        const links = JSON.parse(localStorage.getItem("links")) || [];
+        for (let i = 0; i < links.length; i += 1) {
+            links[i].id = _.uniqueId();
+        }
+        this.setState({
+            links
+        });
     };
     handleAdd = (name, url) => {
         this.setState({
@@ -56,8 +66,8 @@ class Links extends Component {
                 margin="1.5vmin 0 1vmin 2vmin"
                 childMargin="0 0 0 1vmin"
             >
-                <div className="pane">
-                    <ul className="links-container">
+                <div className="links">
+                    <ul className="links__list">
                         {this.state.links.map(link => (
                             <LinksItem
                                 id={link.id}
@@ -71,6 +81,7 @@ class Links extends Component {
                             />
                         ))}
                     </ul>
+                    {this.state.links.length > 0 ? <hr /> : null}
                     <LinksInput onHandleAdd={this.handleAdd} />
                 </div>
             </Hideable>

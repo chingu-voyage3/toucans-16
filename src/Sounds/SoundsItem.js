@@ -22,7 +22,7 @@ class Sounds extends Component {
     };
     render() {
         return (
-            <div>
+            <li className="sounds__item">
                 <button onClick={this.handleClick}>{this.props.name}</button>
                 <input
                     type="range"
@@ -32,7 +32,7 @@ class Sounds extends Component {
                     defaultValue="0.5"
                     onChange={this.handleVolume}
                 />
-            </div>
+            </li>
         );
     }
 }

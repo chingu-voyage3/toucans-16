@@ -1,8 +1,9 @@
 .timer {
     background-color: black;
-    opacity: 0.8;
+    opacity: 0.9;
     color: white;
     border-radius: 5px;
+    padding: 12px;
 }
 .timer__list {
     max-height: 24vh;
@@ -38,10 +39,13 @@
 .timer__item__btn {
     height: 20px;
     outline: 0;
-    background-color: black;
-    opacity: 0.8;
+    /* background-color: black;
+    opacity: 0.8; */
+    background: transparent;
     color: white;
     margin-top: 2px;
+    margin-left: 10px;
+    border: 1px solid white;
 }
 .timer__item__btn:active {
     outline: 0;
@@ -51,12 +55,12 @@
     align-items: center;
     justify-content: space-around;
     margin: auto;
-    padding: 3px;
+    /*padding: 3px;*/
 }
 .timer__control > button {
     border: none;
     background-color: black;
-
+    cursor: pointer;
     color: white;
     outline: 0;
     font-size: 16pt;

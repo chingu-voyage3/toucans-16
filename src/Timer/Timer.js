@@ -4,11 +4,11 @@ import TimerItem from "./TimerItem";
 import Worker from "./timer.worker";
 import Hideable from "../Hideable";
 import ring from "./Ting-sound-effect.mp3";
-import "./timer.css";
+import "./Timer.css";
 
 class Timer extends Component {
     state = {
-        timers: JSON.parse(localStorage.getItem("timers")) || [],
+        timers: [],
         currIdx: 1,
         running: false,
         currTime: 0,
@@ -38,6 +38,7 @@ class Timer extends Component {
     }
     componentDidMount() {
         window.addEventListener("beforeunload", this.onUnload);
+        this.loadSavedData();
     }
     componentWillUnmount() {
         this.worker.terminate();
@@ -53,6 +54,15 @@ class Timer extends Component {
         return s + m + h === 0 && this.state.timers.length > 0
             ? 25 * 60
             : s + m * 60 + h * 3600;
+    };
+    loadSavedData = () => {
+        const timers = JSON.parse(localStorage.getItem("timers")) || [];
+        for (let i = 0; i < timers.length; i += 1) {
+            timers[i].id = _.uniqueId();
+        }
+        this.setState({
+            timers
+        });
     };
     handleAdd = timer => {
         const check = /^[0-9]+$/;
@@ -255,13 +265,23 @@ class Timer extends Component {
                             .toString()
                             .padStart(2, "0")}`}
                     </h1>
-                    <button onClick={this.handlePause}>PAUSE</button>
+                    <button
+                        style={{
+                            border: "none",
+                            backgroundColor: "transparent",
+                            color: "white",
+                            outline: "0",
+                            fontSize: "2vmax"
+                        }}
+                        onClick={this.handlePause}
+                    >
+                        PAUSE
+                    </button>
                 </div>
             );
         } else {
             display = (
                 <div className="timer">
-                    <h2>Custom Timer</h2>
                     <div className="timer__list">
                         {this.state.timers.map((timer, index) => (
                             <TimerItem

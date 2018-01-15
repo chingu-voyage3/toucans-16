@@ -8,10 +8,11 @@ import Timer from "./Timer/Timer";
 import Weather from "./Weather/Weather";
 import "./App.css";
 
-
 class App extends Component {
+    state = { name: localStorage.getItem("name") };
     handleKeyUp = event => {
         if (event.key === "Enter" && event.target.value.length) {
+            this.setState({ name: event.target.value });
             localStorage.setItem("name", event.target.value);
         }
     };
@@ -27,10 +28,11 @@ class App extends Component {
                     width: "100vw"
                 }}
             >
-                {localStorage.getItem("name") === null ? (
+                {this.state.name === null ? (
                     <div className="app__name">
                         <h1>Hello, what is your name?</h1>
                         <input
+                            style={{ textAlign: "center" }}
                             className="app__input"
                             type="text"
                             onKeyUp={this.handleKeyUp}
@@ -42,7 +44,7 @@ class App extends Component {
                             <Todo />
                         </div>
                         <div className="container__clock">
-                            <Clock />
+                            <Clock name={this.state.name} />
                         </div>
                         <div className="container__quote">
                             <Quote />

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./weather.css";
+import "./Weather.css";
 
 class WeatherButton extends Component {
     handleDayChange = event => {

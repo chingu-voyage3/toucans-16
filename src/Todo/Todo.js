@@ -4,21 +4,31 @@ import TodoItem from "./TodoItem";
 import TodoInput from "./TodoInput";
 import TodoFilter from "./TodoFilter";
 import Hideable from "../Hideable";
-import "./todo.css";
+import "./Todo.css";
 
 class Todo extends Component {
     state = {
         option: "ALL",
-        todos: JSON.parse(localStorage.getItem("todos")) || []
+        todos: []
     };
     componentDidMount() {
         window.addEventListener("beforeunload", this.onUnload);
+        this.loadSavedData();
     }
     componentWillUnmount() {
         window.removeEventListener("beforeunload", this.onUnload);
     }
     onUnload = () => {
         localStorage.setItem("todos", JSON.stringify(this.state.todos));
+    };
+    loadSavedData = () => {
+        const todos = JSON.parse(localStorage.getItem("todos")) || [];
+        for (let i = 0; i < todos.length; i += 1) {
+            todos[i].id = _.uniqueId();
+        }
+        this.setState({
+            todos
+        });
     };
     handleNewTodo = item => {
         if (item) {

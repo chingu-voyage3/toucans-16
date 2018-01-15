@@ -2,7 +2,7 @@ import React from "react";
 import _ from "lodash";
 import Hideable from "../Hideable";
 import SoundsItem from "./SoundsItem";
-import "./sounds.css";
+import "./Sounds.css";
 
 const cache = {};
 const keys = {};
@@ -27,9 +27,17 @@ const Sounds = () => (
         margin="1vmin 0 1.5vmin 2vmin"
         childMargin="0 0 0 1vmin"
     >
-        {Object.keys(cache).map(sound => (
-            <SoundsItem key={keys[sound]} name={sound} src={cache[sound]} />
-        ))}
+        <div className="sounds">
+            <ul className="sounds__list">
+                {Object.keys(cache).map(sound => (
+                    <SoundsItem
+                        key={keys[sound]}
+                        name={sound}
+                        src={cache[sound]}
+                    />
+                ))}
+            </ul>
+        </div>
     </Hideable>
 );
 

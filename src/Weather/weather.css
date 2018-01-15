@@ -5,9 +5,9 @@
 .weather {
     background-color: black;
     border: 0;
-    opacity: 0.8;
+    opacity: 0.9;
     color: white;
-    padding: 5px;
+    padding: 12px 12px 0 12px;
     margin: auto;
     border-radius: 5px;
 }
@@ -51,9 +51,10 @@
 }
 
 .weather__button {
-    background-color: black;
+    /* background-color: black; */
+    background: transparent;
     border: none;
-    opacity: 0.8;
+    /* opacity: 0.8; */
     color: white;
     border-radius: 4px;
     padding: 7px;

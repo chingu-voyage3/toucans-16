@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./timer.css";
+import "./Timer.css";
 
 class TimerItem extends Component {
     handleName = event =>
