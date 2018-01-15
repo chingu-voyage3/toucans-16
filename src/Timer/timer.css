@@ -39,8 +39,6 @@
 .timer__item__btn {
     height: 20px;
     outline: 0;
-    /* background-color: black;
-    opacity: 0.8; */
     background: transparent;
     color: white;
     margin-top: 2px;
@@ -55,7 +53,6 @@
     align-items: center;
     justify-content: space-around;
     margin: auto;
-    /*padding: 3px;*/
 }
 .timer__control > button {
     border: none;
