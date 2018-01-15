@@ -23,7 +23,14 @@ class Sounds extends Component {
     render() {
         return (
             <li className="sounds__item">
-                <button onClick={this.handleClick}>{this.props.name}</button>
+                <button
+                    style={{
+                        color: this.state.playing ? "red" : "white"
+                    }}
+                    onClick={this.handleClick}
+                >
+                    {this.props.name}
+                </button>
                 <input
                     type="range"
                     min="0"
