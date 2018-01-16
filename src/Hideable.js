@@ -32,14 +32,13 @@ class Hideable extends Component {
             color: "white",
             outline: "0",
             margin: this.props.margin
-            // fontSize: "1.5vmin"
         };
         return (
             <div
                 style={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center",
+                    alignItems: "flex-end",
                     justifyContent: "center",
                     textAlign: "center"
                 }}
@@ -50,15 +49,18 @@ class Hideable extends Component {
                         style={btnStyle}
                         onClick={this.handleClick}
                     >
-                        <div style={{ opacity: "1" }}>{this.props.label}</div>
+                        <div
+                            style={{ textShadow: "0 1px 0 rgba(0, 0, 0, 0.3)" }}
+                        >
+                            {this.props.label}
+                        </div>
                     </button>
                 ) : null}
                 <div
                     style={{
-                        /* visibility: this.state.hidden ? "hidden" : "visible", */
                         opacity: this.state.hidden ? "0" : "1",
-                        WebkitTransition: "0.3s",
-                        transition: "0.3s",
+                        WebkitTransition: "0.2s",
+                        transition: "0.2s",
                         margin: this.props.childMargin
                     }}
                 >
@@ -70,7 +72,11 @@ class Hideable extends Component {
                         style={btnStyle}
                         onClick={this.handleClick}
                     >
-                        {this.props.label}
+                        <div
+                            style={{ textShadow: "0 1px 0 rgba(0, 0, 0, 0.3)" }}
+                        >
+                            {this.props.label}
+                        </div>
                     </button>
                 ) : null}
             </div>

@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    /* padding-top: 40px; */
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
 }
 .clock__face,
 .greeting {
@@ -22,6 +22,5 @@
 }
 .greeting {
     font-weight: 350;
-    /* margin-top: 10px; */
     font-size: 4.8vmin;
 }
