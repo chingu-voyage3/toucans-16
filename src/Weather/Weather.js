@@ -107,7 +107,8 @@ class Weather extends Component {
                 <div
                     style={{
                         textAlign: "center",
-                        border: "none"
+                        border: "none",
+                        textShadow: "0 1px 0 rgba(0, 0, 0, 0.3)"
                     }}
                 >
                     <div className="weather__toggle__temp">
