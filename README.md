@@ -49,9 +49,11 @@ Type in `yarn install` in your terminal to install all dependencies for this pro
 
 ## Acknowledgments
 
-* A bundle of appreciation goes out to [Chance](https://medium.com/@tropicalchancer) an his team for creating this awesome program! Not only it's free but also accessible for everyone all across the world to join.
-* For more info on the cohort program, please visit [Chingu](https://chingu-cohorts.github.io/chingu-directory/).
+* A bundle of appreciation goes out to [Chance](https://medium.com/@tropicalchancer) and his team for creating this awesome program! Not only is it free but also accessible for everyone all across the world to join.
+* For more information on the cohort program, please visit [Chingu](https://chingu-cohorts.github.io/chingu-directory/).
+> "Developers ship projects/products, they don’t stay on the tutorial treadmill."
+\- Chance Taken
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://help.github.com/articles/licensing-a-repository/) file for details.
