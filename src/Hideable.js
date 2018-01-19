@@ -71,7 +71,10 @@ class Hideable extends Component {
                             : {
                                 opacity: "1",
                                 visibility: "visible",
-                                transitionDelay: "0s linear",
+                                WebkitTransition:
+                                      "visibility 0s linear,opacity 0.2s linear",
+                                transition:
+                                      "visibility 0s linear,opacity 0.2s linear",
                                 margin: this.props.childMargin
                             }
                     }
