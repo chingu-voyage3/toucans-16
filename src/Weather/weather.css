@@ -58,6 +58,7 @@
     color: white;
     border-radius: 4px;
     padding: 7px;
+    margin-bottom: 5px;
 }
 
 .weather__button:focus {

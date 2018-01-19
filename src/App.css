@@ -124,18 +124,7 @@ hr {
 .hideable {
     font-size: 1.5vmin;
 }
-/*.hideable__children {
-    opacity: this.state.hidden ? "0" : "1",
-                        visibility: this.state.hidden ? "hidden" : "visible",
-                        WebkitTransition: this.state.hidden
-                            ? "visibility 0s linear 0.2s,opacity 0.2s linear"
-                            : "",
-                        transition: this.state.hidden
-                            ? "visibility 0s linear 0.2s,opacity 0.2s linear"
-                            : "",
-                        transitionDelay: this.state.hidden ? "" : "0s",
-                        margin: this.props.childMargin
-}*/
+
 @media (max-width: 800px) {
     .hideable {
         font-size: 3vmin;

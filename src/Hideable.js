@@ -10,20 +10,6 @@ class Hideable extends Component {
             hidden: !this.state.hidden
         });
     };
-    /* handleBlur = () => {
-        setTimeout(() => {
-            if (this.state.focus)
-                this.setState({
-                    focus: false
-                });
-        }, 0);
-    };
-    handleFocus = () => {
-        if (!this.state.focus)
-            this.setState({
-                focus: true
-            });
-    }; */
     render() {
         const btnStyle = {
             alignSelf: this.props.align,
