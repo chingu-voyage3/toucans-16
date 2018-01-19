@@ -26,8 +26,9 @@ yarn-error.log*
 
 #Build generated
 build/
-dist/*
-!dist/index.html
+dist/bundle.js
+dist/*.mp3
+dist/*.png
 
 ### SublimeText ###
 # cache files for sublime text
@@ -44,6 +45,7 @@ dist/*
 
 
 ### VisualStudioCode ###
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

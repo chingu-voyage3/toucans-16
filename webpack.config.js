@@ -4,7 +4,7 @@ const webpack = require("webpack");
 module.exports = {
     entry: [
         "react-hot-loader/patch",
-        "webpack-dev-server/client?https://localhost:8080",
+        "webpack-dev-server/client?http://localhost:8080",
         "webpack/hot/only-dev-server",
         "./src/index.js"
     ],
@@ -40,6 +40,14 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"]
+            },
+            {
+                test: /\.(mp3|jpg|png|svg|gif)$/,
+                use: ["file-loader"]
+            },
+            {
+                test: /\.worker\.js$/,
+                use: { loader: "worker-loader" }
             }
         ]
     }

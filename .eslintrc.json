@@ -21,6 +21,9 @@
         "react/prop-types": 0,
         "jsx-a11y/no-noninteractive-element-interactions": 0,
         "no-console": 0,
-        "jsx-a11y/anchor-is-valid": 0
+        "jsx-a11y/anchor-is-valid": 0,
+        "jsx-a11y/no-autofocus": 0,
+        "jsx-a11y/label-has-for": 0,
+        "prefer-destructuring": ["error", { "object": false, "array": false }]
     }
 }

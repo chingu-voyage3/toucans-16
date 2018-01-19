@@ -1,19 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
 import axios from "axios";
+import "./Quote.css";
 
-class Quote extends React.Component {
-
+class Quote extends Component {
     state = {
-        quote: "",
-        author: ""
+        quote: ""
     };
-
     componentDidMount() {
         const baseURL = "https://talaikis.com/api/quotes/random/";
+
         axios.get(baseURL).then(response => {
             this.setState({
-                quote: response.data.quote,
-                author: response.data.author
+                quote: response.data.quote
             });
         });
     }
@@ -21,7 +19,6 @@ class Quote extends React.Component {
         return (
             <div className="quote">
                 <q>{this.state.quote}</q>
-                <p>{this.state.author}</p>
             </div>
         );
     }
