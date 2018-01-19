@@ -103,7 +103,7 @@ class Weather extends Component {
     render() {
         const Button = (
             <div className="weather__toggle">
-                <img src={cache[this.state.icon]} alt="weather-btn" />
+                <img src={cache[this.state.icon]} alt="" />
                 <div
                     style={{
                         textAlign: "center",

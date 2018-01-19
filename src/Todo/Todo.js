@@ -137,24 +137,25 @@ class Todo extends Component {
                             <h2>There is nothing to do!</h2>
                             <h1>&#x263A;</h1>
                         </div>
-                    ) : null}
-                    <ul className="todo__list">
-                        {visibleTodos.map(todo => (
-                            <TodoItem
-                                id={todo.id}
-                                key={todo.id}
-                                value={todo.value}
-                                editing={todo.editing}
-                                completed={todo.completed}
-                                onDeleteTodo={this.handleDeleteTodo}
-                                onDrop={this.handleDrop}
-                                onDragLeave={this.handleDragLeave}
-                                onCompleted={this.handleCompleted}
-                                onEdit={this.handleEdit}
-                                onBlur={this.handleBlur}
-                            />
-                        ))}
-                    </ul>
+                    ) : (
+                        <ul className="todo__list">
+                            {visibleTodos.map(todo => (
+                                <TodoItem
+                                    id={todo.id}
+                                    key={todo.id}
+                                    value={todo.value}
+                                    editing={todo.editing}
+                                    completed={todo.completed}
+                                    onDeleteTodo={this.handleDeleteTodo}
+                                    onDrop={this.handleDrop}
+                                    onDragLeave={this.handleDragLeave}
+                                    onCompleted={this.handleCompleted}
+                                    onEdit={this.handleEdit}
+                                    onBlur={this.handleBlur}
+                                />
+                            ))}
+                        </ul>
+                    )}
                     <TodoInput onNewTodo={this.handleNewTodo} />
                     <hr />
                     <div className="todo__filter">

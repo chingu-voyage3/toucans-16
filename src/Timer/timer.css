@@ -4,6 +4,7 @@
     color: white;
     border-radius: 5px;
     padding: 12px;
+    width: 22vw;
 }
 .timer__list {
     max-height: 24vh;

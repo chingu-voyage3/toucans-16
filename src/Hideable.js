@@ -57,12 +57,24 @@ class Hideable extends Component {
                     </button>
                 ) : null}
                 <div
-                    style={{
-                        opacity: this.state.hidden ? "0" : "1",
-                        WebkitTransition: "0.2s",
-                        transition: "0.2s",
-                        margin: this.props.childMargin
-                    }}
+                    style={
+                        this.state.hidden
+                            ? {
+                                opacity: "0",
+                                visibility: "hidden",
+                                WebkitTransition:
+                                      "visibility 0s linear 0.2s,opacity 0.2s linear",
+                                transition:
+                                      "visibility 0s linear 0.2s,opacity 0.2s linear",
+                                margin: this.props.childMargin
+                            }
+                            : {
+                                opacity: "1",
+                                visibility: "visible",
+                                transitionDelay: "0s linear",
+                                margin: this.props.childMargin
+                            }
+                    }
                 >
                     {this.props.children}
                 </div>

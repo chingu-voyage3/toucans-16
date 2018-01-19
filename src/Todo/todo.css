@@ -6,10 +6,11 @@
     border: 0;
     padding: 12px;
     box-sizing: border-box;
+    width: 20vw;
 }
 
 .todo__list {
-    max-height: 56vh;
+    max-height: 42vh;
     overflow-y: auto;
 }
 
@@ -18,10 +19,11 @@
     padding: 3px;
     color: #d3d3d3;
     opacity: 0.6;
+    font-size: 1.5vmin;
 }
 
 .todo__nothing > h1 {
-    font-size: 60pt;
+    font-size: 5vmin;
 }
 
 .todo__item {
@@ -31,7 +33,6 @@
     align-content: center;
     justify-content: space-between;
     align-self: center;
-    width: 320px;
 }
 
 .todo__text {
@@ -74,6 +75,7 @@
     -webkit-appearance: none;
     padding-top: 15px;
     margin-right: 30px;
+    display: block;
 }
 
 .todo__input::placeholder {
