@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "lodash";
+import _ from "lodash/util";
 import Hideable from "../Hideable";
 import SoundsItem from "./SoundsItem";
 import "./Sounds.css";

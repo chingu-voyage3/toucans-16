@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import _ from "lodash";
+import _ from "lodash/util";
 import TimerItem from "./TimerItem";
 import Worker from "./timer.worker";
 import Hideable from "../Hideable";

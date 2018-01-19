@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import _ from "lodash";
+import _ from "lodash/util";
 import WeatherDisplay from "./WeatherDisplay";
 import WeatherButton from "./WeatherButton";
 import Hideable from "../Hideable";

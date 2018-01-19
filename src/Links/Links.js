@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import _ from "lodash";
+import _ from "lodash/util";
 import Hideable from "../Hideable";
 import LinksItem from "./LinksItem";
 import LinksInput from "./LinksInput";

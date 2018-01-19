@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import _ from "lodash";
+import _ from "lodash/util";
 import TodoItem from "./TodoItem";
 import TodoInput from "./TodoInput";
 import TodoFilter from "./TodoFilter";
