@@ -6,7 +6,7 @@ class Clock extends Component {
         time: new Date(),
         greet: ""
     };
-    componentWillMount() {
+    componentDidMount() {
         setInterval(() => this.currentTime(), 1000);
     }
     currentTime() {
