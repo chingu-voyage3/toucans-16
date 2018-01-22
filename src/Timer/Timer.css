@@ -72,8 +72,9 @@
 }
 .timer__control__repeat {
     display: flex;
-    align-items: flex-end;
-    width: 48px;
+    align-items: center;
+    /* width: 48px; */
+    font-size: 16px;
 }
 .timer__control__repeat > input {
     width: 17px;

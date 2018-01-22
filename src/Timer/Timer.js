@@ -21,7 +21,7 @@ class Timer extends Component {
         this.worker.addEventListener("message", () => {
             this.handleWorker();
         });
-        if (this.state.timers.length === 0)
+        /* if (this.state.timers.length === 0)
             this.setState({
                 timers: [
                     {
@@ -32,7 +32,7 @@ class Timer extends Component {
                         id: _.uniqueId()
                     }
                 ]
-            });
+            }); */
         this.state.alarm.volume = 1;
         this.state.alarm.playbackRate = 2;
     }
@@ -56,13 +56,25 @@ class Timer extends Component {
             : s + m * 60 + h * 3600;
     };
     loadSavedData = () => {
-        const timers = JSON.parse(localStorage.getItem("timers")) || [];
-        for (let i = 0; i < timers.length; i += 1) {
-            timers[i].id = _.uniqueId();
-        }
-        this.setState({
-            timers
-        });
+	    const timers = JSON.parse(localStorage.getItem("timers")) || [];
+	    if (this.state.timers.length === 0)
+		    timers.push(
+			    {
+				    name: "",
+				    secs: "",
+				    mins: "",
+				    hrs: "",
+				    id: _.uniqueId()
+			    }
+		    )
+	    else {   
+		    for (let i = 0; i < timers.length; i += 1) {
+			    timers[i].id = _.uniqueId();
+		    }
+	    }
+	    this.setState({
+		    timers
+	    });
     };
     handleAdd = timer => {
         const check = /^[0-9]+$/;
