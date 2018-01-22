@@ -2,8 +2,9 @@
     background: black;
     opacity: 0.9;
     border-radius: 5px;
-   /* max-width: 400px; */
+   /*max-width: 400px;*/
     /*overflow-x: hidden;*/
+    min-width: 280px;
     padding: 12px;
     /*width: 16vw;*/
 }
@@ -42,6 +43,7 @@
     background: transparent;
     color: white;
     border: none;
+    margin-left: 10px;
 }
 .links__input {
     display: flex;

@@ -40,7 +40,6 @@ class Links extends Component {
 			    }
 		    ]
 	    });
-	    this.onUnload();
     };
     handleDelete = id => {
         this.setState({
