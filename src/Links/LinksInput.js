@@ -28,8 +28,8 @@ class LinksInput extends Component {
             this.state.url.length
         ) {
             let link = this.state.url;
-            if (!link.toString().startsWith("http://"))
-                link = "http://".concat(link);
+            if (!link.toString().startsWith("https://"))
+                link = "https://".concat(link);
             this.props.onHandleAdd(this.state.name, link);
             this.setState({
                 name: "",

@@ -29,17 +29,18 @@ class Links extends Component {
         });
     };
     handleAdd = (name, url) => {
-        this.setState({
-            links: [
-                ...this.state.links,
-                {
-                    id: _.uniqueId(),
-                    name,
-                    url,
-                    fixed: false
-                }
-            ]
-        });
+	    this.setState({
+		    links: [
+			    ...this.state.links,
+			    {
+				    id: _.uniqueId(),
+				    name,
+				    url,
+				    fixed: false
+			    }
+		    ]
+	    });
+	    this.onUnload();
     };
     handleDelete = id => {
         this.setState({
