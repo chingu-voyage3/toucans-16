@@ -11,14 +11,16 @@ class Quote extends Component {
 
         axios.get(baseURL).then(response => {
             this.setState({
-                quote: response.data.quote
+                quote: response.data.quote,
+                author: response.data.author
             });
         });
     }
     render() {
         return (
             <div className="quote">
-                <q>{this.state.quote}</q>
+                <q className="quote-body">{this.state.quote}</q>
+                <p className="quote-source">{this.state.author}</p>
             </div>
         );
     }

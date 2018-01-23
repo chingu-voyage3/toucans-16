@@ -1,16 +1,50 @@
 .quote {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: white;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    font-size: 2.5vmin;
-    margin-bottom: 1.5vmin;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
-}
+    height:80px;
+    width:100%;
+    margin:0;
+    padding-bottom:3px;
+    display:flex;
+    align-items:center;
+    text-align:center
+   }
+   .quote-body,.quote-source {
+    margin:0;
+    color:rgba(255,255,255,.9);
+    line-height:120%;
+    transition:all .35s ease
+   }
+   .quote-body {
+    width:100%;
+    display:block;
+    position:relative;
+    font-size:112.5%;
+    font-weight:300
+   }
+   .quote:hover .quote-body {
+    transform:translateY(-50%)
+   }
+   
+   .quote-source {
+    position:absolute;
+    right:0;
+    bottom:10px;
+    left:0;
+    font-size:80%;
+    opacity:0;
+    transform:translateY(-22px)
+   }
+   .quote:hover .quote-source {
+    opacity:1;
+    transform:translateY(0)
+   }
+   .quote-source-text {
+    margin-right:3px;
+    opacity:.75
+   }
+
 @media (max-width: 800px) {
     .quote {
         font-size: calc(9px + 1vmin);
     }
 }
+   
