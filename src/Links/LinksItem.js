@@ -22,7 +22,7 @@ class LinksItem extends Component {
             >
                 <div className="links__item__link">
                     <img
-                        src={`https://grabicon.com/icon?origin=https://chingu-voyage3.github.io/toucans-16&domain=${
+                        src={`http://www.google.com/s2/favicons?domain=${
                             this.props.url
                         }`}
                         alt={`${this.props.name} icon`}
