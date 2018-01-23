@@ -9,7 +9,7 @@ module.exports = {
     ],
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
+        filename: "[name].js"
     },
     resolve: {
         extensions: [".js", ".json"]
@@ -40,8 +40,12 @@ module.exports = {
     plugins: [
 	new HtmlWebpackPlugin({
       		title: "MomenClone",
-      		filename: "index.html"
+      		filename: "index.html",
+		chunks: ["main", "common"]
     	}),
-	new ReactRootPlugin()
+	new ReactRootPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+		name: "common"
+        })
     ]
 };

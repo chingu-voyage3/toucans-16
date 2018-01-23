@@ -23,14 +23,14 @@ module.exports = merge(common, {
             "process.env.NODE_ENV": JSON.stringify("production")
         }),
         /* new CompressionPlugin({
-            test: /\.(png|mp3|js|css|html)$/,
+            test: /\.(png|mp3|css|html)$/,
             include: /\/src/,
             exclude: /\/node_modules/,
             cache: true,
             algorithm: "gzip",
             minRatio: 0.8
-        }), 
-        new webpack.optimize.ModuleConcatenationPlugin() */
+        }), */
+        new webpack.optimize.ModuleConcatenationPlugin(),
 	new UglifyJsPlugin({
 		sourceMap: true
 	}),
