@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ReactRootPlugin = require("html-webpack-react-root-plugin");
 
 module.exports = {
     entry: [
@@ -27,10 +28,6 @@ module.exports = {
                 loader: "babel-loader"
             },
             {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"]
-            },
-            {
                 test: /\.(mp3|jpg|png|svg|gif)$/,
                 use: ["file-loader"]
             },
@@ -41,6 +38,10 @@ module.exports = {
         ]
     },
     plugins: [
-      new CleanWebpackPlugin(["dist"])
+	new HtmlWebpackPlugin({
+      		title: "MomenClone",
+      		filename: "index.html"
+    	}),
+	new ReactRootPlugin()
     ]
 };
