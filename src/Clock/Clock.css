@@ -13,7 +13,7 @@
     text-align: center;
 }
 .clock__face {
-    font-size: 15vmin;
+    font-size: 18vmin;
     font-weight: 450;
     line-height: 1;
     letter-spacing: -5px;
@@ -22,5 +22,5 @@
 }
 .greeting {
     font-weight: 350;
-    font-size: 4.8vmin;
+    font-size: 6vmin;
 }
