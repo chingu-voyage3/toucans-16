@@ -155,18 +155,18 @@ input:checked + .slider:before {
     height: 3vmax;
 }
 .weather__toggle__temp {
-    font-size: 2vmin;
+    font-size: 3vmin;
 }
 .weather__toggle__city {
-    font-size: 1vmin;
+    font-size: 1.6vmin;
     opacity: 0.75;
 }
 @media (max-width: 800px) {
     .weather__toggle__temp {
-        font-size: 3vmin;
+        font-size: calc(9px + 1.2vmin);
     }
     .weather__toggle__city {
-        font-size: 1.8vmin;
+        font-size: calc(7px + 0.6vmin);
     }
     .weather__toggle > img {
         width: 4vmax;
