@@ -107,9 +107,21 @@ class Timer extends Component {
             });
         }
     };
-    handleDelete = id => {
+    handleDelete = (id, idx) => {
+        let index = this.state.currIdx;
+        let time = this.state.currTime;
+        if(idx === this.state.currIdx) {
+            time = 0;
+            if(idx === this.state.timers.length - 1)
+                index = 1;
+        }
+        else if(idx < this.state.currIdx){
+            index -= 1;
+        }
         this.setState({
-            timers: this.state.timers.filter(timer => timer.id !== id)
+            timers: this.state.timers.filter(timer => timer.id !== id),
+            currTime: time,
+            currIdx: index
         });
     };
     handleClear = event => {
@@ -287,6 +299,7 @@ class Timer extends Component {
                             <TimerItem
                                 key={timer.id}
                                 timer={timer}
+                                idx={index}
                                 highlight={this.state.currIdx === index}
                                 set={index !== 0}
                                 onHandleAdd={this.handleAdd}

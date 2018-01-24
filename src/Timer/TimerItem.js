@@ -25,7 +25,7 @@ class TimerItem extends Component {
     };
     handleDelete = event => {
         event.preventDefault();
-        this.props.onHandleDelete(this.props.timer.id);
+        this.props.onHandleDelete(this.props.timer.id, this.props.idx);
     };
     render() {
         return (
