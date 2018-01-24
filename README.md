@@ -9,6 +9,10 @@ This build-to-learn project was created by the participants of [Chingu](https://
 
 Available in [Chrome](https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca) and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/momentumdash/).
 
+## Screenshot
+
+![Imgur](https://i.imgur.com/hsmBMaI.png)
+
 ## Getting Started
 
 ### Prerequisites
