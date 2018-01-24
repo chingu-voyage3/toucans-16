@@ -5,7 +5,8 @@
     padding-bottom: 3px;
     display: flex;
     align-items: center;
-    text-align: center
+    text-align: center;
+    font-family: "Helvetica Neue, Helvetica, Arial, sans-serif";
    }
    .quote-body,.quote-source {
     margin: 0;
@@ -18,7 +19,6 @@
     display: block;
     position: relative;
     font-size: 112.5%;
-    font-weight: 300
    }
    .quote:hover .quote-body {
     transform: translateY(-50%)
@@ -26,10 +26,11 @@
    
    .quote-source {
     position: absolute;
+    font-weight: 300;
     left: 30%;
     right: 30%;
     bottom: 10px;
-    font-size: 80%;
+    font-size: 90%;
     opacity: 0;
     transform: translateY(-22px)
    }
