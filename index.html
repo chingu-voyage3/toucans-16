@@ -3,8 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <title>MomenClone</title>
-  <link href="styles.css" rel="stylesheet"></head>
+  </head>
   <body>
     <div id="root"></div>
+    <noscript id="deferred-styles">
+        <link rel="stylesheet" href="styles.css">
+    </noscript>
+    <script>
+        const loadDeferredStyles = function() {
+            const addStylesNode = document.getElementById("deferred-styles");
+            const replacement = document.createElement("div");
+            replacement.innerHTML = addStylesNode.textContent;
+            document.body.appendChild(replacement)
+            addStylesNode.parentElement.removeChild(addStylesNode);
+        };
+        const raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+        if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+        else window.addEventListener('load', loadDeferredStyles);
+    </script>
   <script type="text/javascript" src="common.js" defer></script><script type="text/javascript" src="main.js" defer></script></body>
 </html>
